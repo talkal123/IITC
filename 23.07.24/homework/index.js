@@ -9,6 +9,8 @@
    let email = "lala@153.com";
    let score = 52
    let word = "lilili";
+   let subString = "string"
+   let mainString = subString;
    
 
    console.log("firstName" , firstName);
@@ -271,3 +273,18 @@ function  capitalize(word){
 
 
 console.log(capitalize(word));
+
+
+
+
+
+function containsSubstring(mainString,subString){
+   if (mainString.includes(subString)){
+      console.log("true")
+   } else {
+      console.log("false")
+   }
+   
+}
+
+console.log(containsSubstring(mainString,subString));
