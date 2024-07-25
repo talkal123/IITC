@@ -13,7 +13,7 @@ console.log(pi);
 let isStudent = true;
 console.log(isStudent);
 
-let favoriteColor = '';
+let favoriteColor;
 console.log(favoriteColor);
 
 let temperature = 72.5;
@@ -70,6 +70,16 @@ console.log(fruits);
 
 let person = {firstName:"tal",age:24 };
 console.log(person);
+
+let count2 = 5;
+count2 -= 1;
+console.log(count2);
+
+let greeting = "Good";
+greeting += "morning";
+console.log(greeting);
+
+
 
 
 
