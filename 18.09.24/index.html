@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <p class="text">baba</p>
+    </div>
+    <div>
+        <ul id="list">
+            <li>גגג</li>
+            <li>ddd</li>
+            <li>דדד</li>
+            <li>dds</li>
+            <li>sdsd</li>
+        </ul>
+    </div>
+    <button id="myBtn">"Highlight List Items".</button>
+    </div>
+    </div>
+
+    <div id="section2">
+        <ul id="items">
+            <li>ss</li>
+            
+        </ul>
+        <button id="addItem">Add item</button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        const myElement = document.getElementById("content");
+        myElement.style.background = "blue";
+
+        const myText = document.querySelectorAll("text");
+        myElement.style.color = "red";
+
+
+        const allUl = document.querySelectorAll("#list li");
+        for (let i = 0; i < allUl.length; i++) {
+            console.log(allUl[i].textContent);
+        }
+
+       
+
+
+        const btn = document.getElementById("myBtn")
+        btn.addEventListener("click", changeColor)
+
+        function changeColor() {
+            document.querySelector("#list").style.background = "yellow";
+        }
+
+
+
+        const add = document.getElementById("addItem");
+        add.addEventListener("click", addItem)
+
+        function addItem(){
+           const newItem = document.createElement("li");
+            newItem.textContent = "New Item";
+
+            const list = document.querySelector("#items");
+            list.appendChild(newItem);
+
+        }
+
+        const bolding = document.getElementById("#items li")
+        bolding.addEventListener("click", addItem)
+
+            function bold(){
+                const bold = document.querySelector("li");
+                bold.style.fontWeight(1000);
+
+            }
+
+
+            //document.querySelector("#items").appendChild(document.createElement("li")); אופציה ב
+
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+
+body{
+
+}
+
+.container{
+    background-color: aqua;
+    display: grid;
+    align-items: center;
+    width: auto;
+    grid-template-columns: repeat(3, 12px);
+    grid-template-rows: repeat(3, auto);
+    gap: 5px;
+
+}
+
+.item1{
+    background-color: yellow;
+    
+}
+.item2{
+    background-color: yellow; 
+}
+.item3{
+    background-color: yellow;    
+}
+.item4{
+    background-color: yellow;
+    
+}
+.item5{
+    background-color: yellow;
+    
+}
+.item6{
+    background-color: yellow;
+    
+}
+.item7{
+    background-color: yellow;
+    
+}
+.item8{
+    background-color: yellow;
+    
+}
+.item9{
+    background-color: yellow;
+    
+}

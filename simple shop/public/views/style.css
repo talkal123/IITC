@@ -1,0 +1,11 @@
+.body{
+    padding: 0px;
+    margin: 0px;
+    background: #000;
+}
+
+h1{
+    display: flex;
+    align-self: center;
+    background-color: antiquewhite;
+}

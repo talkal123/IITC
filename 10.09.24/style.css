@@ -1,0 +1,52 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    background-color: aqua;
+    height: 80px;
+    position: sticky;
+    top: 0px;
+}
+
+header h3{
+    display: inline-block;
+}
+
+nav{
+    background-color: brown;
+    height: 1800px;
+    width: fit-content;
+    position: absolute;   
+}
+
+main{
+    background-color: blueviolet;
+    width: fit-content;
+    position: relative;
+    left: 200px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: blueviolet;
+    width: 100%;
+    padding: 15px;
+}
+
+button{
+    position: fixed;
+    right: 0px;
+    bottom: 50px;
+    background-color: blueviolet;
+    border-style: solid;
+    border-radius: 50px;
+    color: aliceblue;
+    border: 3px;
+    padding: 8px;
+}
+
+
+
