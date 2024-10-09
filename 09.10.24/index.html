@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,36 +11,5 @@
 
 </body>
 <script src="main.js"></script>
-</html> -->
+</html> 
 
-
-
-<!DOCTYPE html>
-<html lang="he">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch API Example</title>
-</head>
-<body>
-    <div id="data-container">נתונים יופיעו כאן...</div>
-
-    <script>
-        fetch("https://api.7digital.com/1.2/")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const container = document.getElementById('data-container');
-                container.innerHTML = JSON.stringify(data, null, 2); // מציג את הנתונים בפורמט JSON
-            })
-            .catch(error => {
-                const container = document.getElementById('data-container');
-                container.innerHTML = 'שגיאה: ' + error.message;
-            });
-    </script>
-</body>
-</html>
