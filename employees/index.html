@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול עובדים</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="employees-container">
+        <h1>מערכת ניהול עובדים</h1>
+        <div id="employees-main">
+            <input type="text" id="firstName" placeholder="שם פרטי">
+            <input type="text" id="lastName" placeholder="שם משפחה">
+            <input type="number" id="age" placeholder="גיל" required>
+            <input type="date" id="startDate" placeholder="תאריך התחלה">
+            <input type="text" id="department" placeholder="מחלקה">
+            <input type="number" id="salary" placeholder="שכר">
+            <br>
+            <button id="addEmployee">הוסף עובד</button>
+            <button id="saveEmployee">שמור עובד</button>
+            <button id="removeEmployee">מחק עובד</button>
+            <button id="allEmployees">הצגת עובדים</button>
+            <button id="cleanAllEmployees">ניקוי רשימה</button>
+        </div>
+        <br>
+        <div id="filter">
+            <select id="filterDepartment" placeholder="סנן לפי מחלקה">
+                <option id="Marketing">Marketing</option>
+                <option id="Sales">Sales</option>
+                <option id="IT">IT</option>
+                <option id="Finance">Finance</option>
+                <option id="Operations">Operations</option>
+                <option id="Logistics">Logistics</option>
+            </select>
+        </div>
+        <ul id="employees-list">
+            <li id="li">ss</li>
+        </ul>
+    </div>
+    
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
