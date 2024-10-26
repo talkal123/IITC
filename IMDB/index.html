@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+            <div id="hamburger"><a href="#" id="hamburger-btn" style="text-decoration: none; font-size: 30px;"><i class="fa-solid fa-bars"></i></a></div>
+            <div id="left-nav">
+                <div id="logo"><a href="Credits/index.html" style="text-decoration: none; font-size: 30px;"><i class="fa-solid fa-clapperboard"></i></a></div>
+                <div id="Home"><a href="#" style="text-decoration: none;">Home</a></div>
+                <div id="Movies"><a href="#middle-content" style="text-decoration: none;"> Trending</a></div>
+                <div id="Series"><a href="#upcoming" style="text-decoration: none;">Upcoming</a></div>
+                <div id="Kids"><a href="#Top-Rated" style="text-decoration: none;">Top-Rated</a></div>
+            </div>
+            <div id="middle-nav">
+                <div id="search-div"><input id="search"  type="search" placeholder="Search Here" style="width: 250px;"></div>
+                <div id="search-result" style="display: none;"><div id="output"></div></div>
+            </div>
+            <div id="right-container">
+                <div id="right-nav">
+                    <div id="Search-logo"><a href="#" style="text-decoration: none;"><i class="fa-solid fa-magnifying-glass"></i></a></i></div>
+                    <div id="Ring-logo">
+                        <div id="count"></div>
+                        <a href="#" style="text-decoration: none; "><i class="fa-regular fa-bell"></i></a>
+                    </div>
+                    <div id="Profile-logo"><a href="#" style="text-decoration: none;"><i class="fa-regular fa-user"></i></a></div>
+                </div>
+                <div id="favorits">
+                </div>
+            </div>
+        </div>
+        <div id="middle">
+            <div id="middle-content">
+                <h1 id="h1">The movie</h1>
+                <p id="p">Description</p>
+                <button id="btn-Watch" style="display: none;">Watch Now</button>
+                <button id="btn-Details" style="display: none;">
+                    Details
+                </button> </div>
+        </div>
+        <h2>Trending Movies</h2>
+    </div>
+
+    <div id="The-Trending-Movies">
+        <div id="movie-item"></div>
+    </div>
+
+    
+    <div id="movies-container">
+        <div id="popular">
+            <h2>Popular Movies</h2>
+            <div id="The-popular-Movies">
+                <div id="popular-item"></div>
+            </div>
+        </div>
+        <div id="upcoming">
+            <h2>Upcoming</h2>
+            <div id="Upcoming-Movies">
+                <div id="Upcoming-items"></div>
+            </div>
+        </div>
+        <div id="Top-Rated">
+            <h2>Top-Rated</h2>
+            <div id="Top-Rated-Movies">
+                <div id="Top-Rated-items"></div>
+            </div>
+        </div>
+    </div>
+    <footer style="background-color: #222; color: white; padding: 20px; text-align: center;">
+        <h4>&copy; 2024 Movie App. All Rights Reserved.</h4>
+        <div>
+            <a href="Credits/index.html" style="color: white; text-decoration: none; margin: 0 10px;">About</a>
+            <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Contact</a>
+            <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+        </div>
+        <div>
+            <i class="fa-brands fa-facebook" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-twitter" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
+        </div>
+    </footer>
+</body>
+<script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://kit.fontawesome.com/5ddb72ecce.js"></script></html>
