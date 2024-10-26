@@ -32,8 +32,6 @@ const renderMovie = function(movie) {
         </button>
         
     `;
-
-    
     
     divElement.addEventListener('click', () => {
         console.log('Movie clicked:', movie);
@@ -42,7 +40,6 @@ const renderMovie = function(movie) {
         middleDiv.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
         middleDiv.style.backgroundSize = 'cover';
     });
-
 
     const addButton = divElement.querySelector(".add-movie-btn");
         addButton.addEventListener("click",()=> { 
@@ -72,14 +69,9 @@ const renderMovie = function(movie) {
             updateFavorites();    
         });
 
-    
-
     moviesListElement.appendChild(divElement);
 
 };
-
-
-
 
 function updateFavorites() {
     notification.innerHTML = '';     
@@ -217,9 +209,6 @@ const popularOptions = {
           });
       })
       .catch(err => console.error(err));
-
-
-
 
 
 

@@ -27,7 +27,6 @@ body{
 }
 
 
-
 #left-nav{
     display: flex;
     align-items: center;
@@ -44,7 +43,6 @@ body{
     color: rgb(126, 122, 122);
 }
 
-#middle-nav{
 }
 
 #search-div{
@@ -108,8 +106,6 @@ body{
     list-style: none;
     text-align: center;
 }
-
-
 
 #about-container{
     text-align: center;

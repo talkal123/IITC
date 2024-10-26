@@ -2,16 +2,36 @@ body{
     background-color: rgb(0, 0, 0);
 }
 
-#container{
+/* #container{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 15px;
     display: grid;
     height: 800px;
     align-content: space-between;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(78, 70, 70);
     border-radius: 25px;
     
+} */
+#container {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 15px;
+    display: grid;
+    height: 800px; 
+    align-content: space-between;
+    color: white;
+    position: relative; 
+    overflow: hidden; 
+}
+
+#background-video {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
 }
 
 #top{
@@ -136,9 +156,6 @@ body{
     width: 30%;
 }
 
-#p{
-}
-
 
 #btn-Watch{
     background-color: rgb(255, 255, 255);
@@ -199,8 +216,6 @@ body{
     object-fit: cover; 
 }
 
-
-
 #movie-item h1{
     display: none;
 }
@@ -218,7 +233,6 @@ body{
     background-color: rgb(236, 231, 231, 0.7);
     color: white;
     font-size: 20px;
-
 }
 
 
@@ -226,7 +240,6 @@ body{
     padding: 10px;
     display: grid;
     gap: 30px;
-
 }
 
 #categories{
@@ -278,7 +291,6 @@ body{
 #popular-item img {
     border-radius: 15px; 
     width: 200px; 
-    
 }
 
 #popular-item h1{
@@ -298,7 +310,6 @@ body{
     background-color: rgb(236, 231, 231, 0.7);
     color: white;
     font-size: 20px;
-
 }
 
 #upcoming{
@@ -326,11 +337,9 @@ body{
 }
 
 
-
 #Upcoming-items img {
     border-radius: 15px; 
     width: 200px; 
-    
 }
 
 
@@ -351,7 +360,6 @@ body{
     text-align: center;
     background-color: rgb(236, 231, 231, 0.7);
     color: white;
-
 }
 
 
@@ -401,7 +409,6 @@ body{
     text-align: center;
     background-color: rgb(236, 231, 231, 0.7);
     color: white;
-
 }
 
 
@@ -422,8 +429,6 @@ body{
         width: 50px;
         border-radius: 15px;
         padding: 5px;
-        
-
     }
 
     #hamburger{
@@ -439,9 +444,7 @@ body{
 
     #left-nav{
         display: none;
-        justify-items: center;
-
-        
+        justify-items: center; 
     }
 
     #right-nav{
@@ -462,7 +465,6 @@ body{
         text-align: center;
     }
     
-
     #p{
         display: none;
     }
@@ -485,8 +487,4 @@ body{
     #Top-Rated{
         overflow: scroll;
     }
-
-
-
-
 }
