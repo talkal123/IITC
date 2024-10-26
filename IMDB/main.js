@@ -17,9 +17,6 @@ const fMovies = [];
 let count = 0;
 
 
-
-
-
 const renderMovie = function(movie) {
     const divElement = document.createElement("div");
     divElement.innerHTML = `
