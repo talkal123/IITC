@@ -4,7 +4,6 @@ const movieId = params.get("id");
 if (movieId) {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=04ed59c56f185b34bbc4edb193bfc58c`)
         .then(response => {
-
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -22,18 +21,16 @@ if (movieId) {
             const trailers = data.results.filter(video => video.type === 'Trailer');
 
             if (trailers.length > 0) {
-                
                 const firstTrailer = trailers[0];
                 document.getElementById("video").src = `https://www.youtube.com/embed/${firstTrailer.key}`;
             }
 
             if (trailers.length > 1) {
-                
                 const secondTrailer = trailers[1];
                 document.getElementById("video-2").src = `https://www.youtube.com/embed/${secondTrailer.key}`;
             }
 
-            
+            return fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=04ed59c56f185b34bbc4edb193bfc58c`);
         })
         .then(response => response.json())
         .then(data => {
@@ -45,5 +42,3 @@ if (movieId) {
 } else {
     console.error('No movie ID provided');
 }
-
-
