@@ -1,4 +1,4 @@
-    
+
 const moviesListElement = document.querySelector("#movie-item");
 const middleDiv = document.querySelector("#container");
 const h1Content = document.querySelector("#h1");
@@ -12,9 +12,40 @@ const upcomingItem = document.querySelector("#Upcoming-items");
 const topRatedItems = document.querySelector("#Top-Rated-items");
 const btnAction = document.querySelector("#btn-Action");
 const countNum = document.querySelector("#count");
+const searchInput = document.querySelector("#search");
+const searchBtn = document.querySelector("#Search-logo");
+const searchResult = document.querySelector("#search-result");
+
 
 const fMovies = [];
 let count = 0;
+
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGVkNTljNTZmMTg1YjM0YmJjNGVkYjE5M2JmYzU4YyIsIm5iZiI6MTcyODk5MTI3Ny41NDY5MzMsInN1YiI6IjY3MGU0ZjAyMGI4MDA1MzdkNzVjZTM4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C7_OFnH9U-0JyBgbJUiaAlX0JpcCRhvNzMPe9MAJX-0'
+    }
+};
+
+fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+    .then(response => response.json())
+    .then(response => {
+        const topFiveMovies = response.results.slice(0, 6);
+        topFiveMovies.forEach(movie => {
+            renderMovie(movie);
+        });
+        console.log(response);
+    })
+    .catch(err => console.error(err));
+
+hamburger.addEventListener("click", () => {
+    if (leftNav.style.display === "grid") {
+        leftNav.style.display = "none";
+    } else {
+        leftNav.style.display = "grid"; 
+    }
+});
 
 
 const renderMovie = function(movie) {
@@ -87,35 +118,6 @@ ringLogo.addEventListener("click",() =>{
     }
 });
 
-//----------------------------------------------------------------
-
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGVkNTljNTZmMTg1YjM0YmJjNGVkYjE5M2JmYzU4YyIsIm5iZiI6MTcyODk5MTI3Ny41NDY5MzMsInN1YiI6IjY3MGU0ZjAyMGI4MDA1MzdkNzVjZTM4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C7_OFnH9U-0JyBgbJUiaAlX0JpcCRhvNzMPe9MAJX-0'
-    }
-};
-
-fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-    .then(response => response.json())
-    .then(response => {
-        const topFiveMovies = response.results.slice(0, 6);
-        topFiveMovies.forEach(movie => {
-            renderMovie(movie);
-        });
-        console.log(response);
-    })
-    .catch(err => console.error(err));
-
-hamburger.addEventListener("click", () => {
-    if (leftNav.style.display === "grid") {
-        leftNav.style.display = "none";
-    } else {
-        leftNav.style.display = "grid"; 
-    }
-});
-
 
 const popularMovie = function(movie) {
     const divElement = document.createElement("div");
@@ -140,12 +142,12 @@ const popularMovie = function(movie) {
     const addButton = divElement.querySelector(".add-movie-btn");
         addButton.addEventListener("click",()=> { 
             
-            if(fMovies.includes(movie.title)){
-                fMovies.splice(fMovies.indexOf(movie.title), 1);
+            if(fMovies.includes(movie.name)){
+                fMovies.splice(fMovies.indexOf(movie.name), 1);
                 count--; 
                 console.log(count);
             }else{
-                fMovies.push(movie.title);
+                fMovies.push(movie.name);
                 count ++;
                 console.log(count);
             }
@@ -180,14 +182,13 @@ const popularOptions = {
   fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', popularOptions)
     .then(res => res.json())
     .then(res => {
-        const topPopularMovies = res.results.slice(0, 6);
+        const topPopularMovies = res.results.slice(0, 20);
         topPopularMovies.forEach(movie => {
             popularMovie(movie);
         });
     })
     .catch(err => console.error(err));
 
-//---------------------------------------------------------------------
 
     const UpcomingOptions = {
         method: 'GET',
@@ -200,7 +201,7 @@ const popularOptions = {
       fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)
       .then(res => res.json())
       .then(res => {
-          const topUpcomingMovies = res.results.slice(0, 6);
+          const topUpcomingMovies = res.results.slice(0, 20);
           topUpcomingMovies.forEach(movie => {
               UpcomingMovie(movie);
           });
@@ -258,7 +259,7 @@ const popularOptions = {
     
     };
 
-//----------------------------------------------------------
+
 
 const topRatedOptions = {
     method: 'GET',
@@ -271,7 +272,7 @@ const topRatedOptions = {
   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
   .then(res => res.json())
   .then(res => {
-      const topRatedMovies = res.results.slice(0, 6);
+      const topRatedMovies = res.results.slice(0, 20);
       topRatedMovies.forEach(movie => {
         RatedMovie(movie);
       });
@@ -329,15 +330,6 @@ const topRatedOptions = {
 
 };
 
-
-
-const searchInput = document.querySelector("#search");
-const searchBtn = document.querySelector("#Search-logo");
-const searchResult = document.querySelector("#search-result");
-
-
-
-
 function SearchFunc() {
     const query = searchInput.value; 
     const apiKey = '04ed59c56f185b34bbc4edb193bfc58c'; 
@@ -348,13 +340,11 @@ function SearchFunc() {
                 const movie = data.results[0];     
                 output.innerHTML = `
                     <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title}">
-                    <strong>${movie.title}</strong>
-                    
+                    <strong>${movie.title}</strong>     
                 `;
             } else {
-                output.innerHTML = "לא נמצאו סרטים";
+                output.innerHTML = "No result";
             }
-
             if (searchResult.style.display === "block") {
                 searchResult.style.display = "none";
             } else {
@@ -368,8 +358,69 @@ searchBtn.addEventListener("click", SearchFunc);
 
 
 
+const popularMovies = document.querySelector("#The-popular-Movies");
+const button1 = document.querySelector("#button1");
+const button2 = document.querySelector("#button2");
+const upcomingMovies = document.querySelector("#Upcoming-Movies");
+const button3 = document.querySelector("#button3");
+const button4 = document.querySelector("#button4");
+const RatedMovies = document.querySelector("#Top-Rated-Movies");
+const button5 = document.querySelector("#button5");
+const button6 = document.querySelector("#button6");
 
 
+
+
+button1.addEventListener("click", () =>{
+    popularMovies.scrollBy({
+        top: 0,
+        left: -100, 
+        behavior: 'smooth' 
+    });
+});
+
+button2.addEventListener("click", () => {
+    popularMovies.scrollBy({
+        top: 0,
+        left: 200, 
+        behavior: 'smooth' 
+    });
+});
+
+
+button3.addEventListener("click", () =>{
+    upcomingMovies.scrollBy({
+        top: 0,
+        left: -200, 
+        behavior: 'smooth' 
+    });
+});
+
+button4.addEventListener("click", () => {
+    upcomingMovies.scrollBy({
+        top: 0,
+        left: 200, 
+        behavior: 'smooth' 
+    });
+});
+
+
+button5.addEventListener("click", () =>{
+    RatedMovies.scrollBy({
+        top: 0,
+        left: -200, 
+        behavior: 'smooth' 
+    });
+});
+
+button6.addEventListener("click", () => {
+    
+    RatedMovies.scrollBy({
+        top: 0,
+        left: 200, 
+        behavior: 'smooth' 
+    });
+});
 
 
 
