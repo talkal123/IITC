@@ -1,11 +1,10 @@
 {
-  "name": "28-10-24",
+  "name": "07.11.24",
   "version": "1.0.0",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +12,8 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
-    "mongoose": "^8.7.3",
-    "morgan": "^1.10.0"
+    "mongoos": "^0.0.1-security",
+    "mongoose": "^8.8.0",
+    "nodemon": "^3.1.7"
   }
 }

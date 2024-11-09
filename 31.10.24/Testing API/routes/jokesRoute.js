@@ -1,24 +1,12 @@
 import express from "express"
-import authUser from '../middleware/auth.js'
+// import authUser from '../middleware/auth.js'
 
 // Dummy DB Import
 import jokes from '../db/jokes.json' assert { type: "json" }
-// import { validateJoke } from "../middleware/validator.js"
 
 const router = express.Router()
 
-// const writeToFile = async (filename, data) => {
-//     try {
-//         await fs.appendFile(filename, JSON.stringify(data))
-//         return true
-//     } catch (error) {
-//         console.error(`Error writing to ${filename}:`, error)
-//         return false
-//     }
-// }
 
-// router.use(authUser)
-// router.use(validateJoke)
 
 // Jokes Routes
 router.get('/', (req, res) => {
@@ -41,7 +29,7 @@ router.get("/:id", (req, res) => {
     res.json(joke)
 })
 
-router.post("/", validateJoke, async (req, res) => {
+router.post("/", async (req, res) => {
     const { id, setup, punchline } = req.body
 
     const newJoke = {

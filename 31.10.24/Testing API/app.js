@@ -3,12 +3,21 @@ import express from "express"
 import morgan from "morgan"
 import logRequest from "./middleware/logger.js"
 // import authUser from './middleware/auth.js'
+import mongoose from "mongoose"
 
 // Routes Import
 import jokesRoutes from "./routes/jokesRoute.js"
 
 const app = express()
 const PORT = 3000
+
+
+// DB Connection
+const URI = "mongodb+srv://talkal:0tw3LltEeBvbP2L4@cluster0.3gacv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+mongoose.connect(URI).then(() => {
+    console.log("Successfully Conected to MongoDb Server");
+})
 
 // Dummy DB Import
 import users from './db/users.json' assert { type: "json" }
@@ -47,6 +56,7 @@ app.use("/api/jokes", jokesRoutes)
 
 // Users Routes
 app.get('/api/users', (req, res) => {
+    console.log("GET request to /api/users");
     res.json(users)
 })
 
