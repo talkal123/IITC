@@ -1,0 +1,6 @@
+.Background{
+    background-image: url('/public/image-omelette.jpeg'); /* לא צריך /public */
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+}

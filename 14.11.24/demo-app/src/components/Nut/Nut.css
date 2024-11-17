@@ -1,0 +1,20 @@
+.Nut{
+    padding: 10px;
+}
+
+table,td{
+    width: 1200px;
+    border:1px solid;
+    padding: 10px;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-color: rgb(221, 221, 221);
+
+}
+
+.TdNut{
+    color: rgb(157, 121, 53);
+    font-weight: 700;
+}

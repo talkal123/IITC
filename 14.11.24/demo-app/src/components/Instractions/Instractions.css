@@ -1,0 +1,20 @@
+.Instruction{
+    padding: 10px;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-color: rgb(221, 221, 221);
+
+}
+
+.InstSpan{
+    color: rgb(97, 96, 96);
+    font-weight: 500;
+
+}
+
+.LiInst{
+    color: rgb(157, 121, 53);
+    font-weight: 800;
+}

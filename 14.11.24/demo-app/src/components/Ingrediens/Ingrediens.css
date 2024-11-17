@@ -1,0 +1,18 @@
+.Ingrediens{
+    padding: 10px;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-color: rgb(221, 221, 221);
+
+}
+
+h2{
+    color: rgb(157, 121, 53);
+}
+
+li{
+    color: rgb(97, 96, 96);
+    font-size: 16px;
+}

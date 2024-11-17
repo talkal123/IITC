@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const express = require("express");
 const userRoutes = require('./routes/userRoute.js')
+const bookRoutes = require('./routes/bookRoute.js')
+
 require('dotenv').config()
 
 const PORT = 3000
@@ -12,17 +14,12 @@ app.use(express.json())
 
 mongoose.connect(dbUri)
 
-app.get("/", (req, res) => {
-    res.send("Hello World!")
-})
-
 
 
 app.use('/api/users', userRoutes)
 
-app.get("/:id", (req, res) => {
-    res.send("Hello World!")
-})
+app.use('/api/books', bookRoutes)
+
 
 
 
@@ -30,35 +27,6 @@ app.get("/:id", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
