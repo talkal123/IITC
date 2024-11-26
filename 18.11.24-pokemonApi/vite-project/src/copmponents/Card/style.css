@@ -1,0 +1,54 @@
+.grid-container{
+    background-color: rgb(147, 147, 147);
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 15px;
+    justify-items: center;
+}
+
+
+.Card{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+
+.Card_types{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+span{
+    text-align: center;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+.btn button{
+    padding: 15px;
+    color: white;
+    background-color: rgb(28, 134, 247);
+    border-radius: 20px;
+    border-style: none;
+    transition: 700ms;
+}
+
+.btn button:hover{
+    background-color: rgb(179, 175, 175);
+}
