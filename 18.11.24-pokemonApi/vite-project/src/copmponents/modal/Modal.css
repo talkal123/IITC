@@ -14,7 +14,7 @@
   .openModelButton {
     padding: 15px;
     color: white;
-    background-color: rgb(28, 134, 247);
+    background-color: rgb(205, 211, 216);
     border-radius: 20px;
     border-style: none;
     transition: 700ms;
@@ -40,8 +40,11 @@
  
   
   .modal-content {
+    display: grid;
+    justify-items: center;
+    text-align: center;
     background-color: white;
-    padding: 20px;
+    padding: 50px;
     border-radius: 8px;
     width: 80%;
     max-width: 500px;

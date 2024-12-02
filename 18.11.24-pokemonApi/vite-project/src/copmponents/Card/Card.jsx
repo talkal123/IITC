@@ -10,17 +10,35 @@ function Card ({pokemon}) {
         const closeModal = () => setIsModalOpen(false);
     
 return (
-    <div className="Card">
+    <div className="Card" style={{ backgroundColor: pokemonType[pokemon.types[0]?.type?.name] || "#ffffff" }}>
         <div className="Card_img">
-            <img src={pokemon.sprites.front_default}></img>   
+            <img src={pokemon.sprites.other?.showdown?.front_default}></img>
         </div>
-        <div className="Card_name">Name: {pokemon.name} 
+        <div className="Card_name">
+            <p style={{fontWeight:"600",fontSize:"25px",color:"white"}}>{pokemon.name}</p>
+            <div className="pokemonType">Id : {pokemon.id}#</div> 
+            <button className="openModelButton" onClick={openModal}>All Details</button>
         </div>
-        <button className="openModelButton" onClick={openModal}>All Details</button>
-        
         {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <div className="allCardTypes">
+            <div className="img_container" style={{ backgroundColor: pokemonType[pokemon.types[0]?.type?.name] || "#ffffff" }}>
+                <div className="detailsContainer">
+                    <div className="leftDetails">
+                        <p>{pokemon.name}</p>
+                        <div className="leftDetailsDivs">
+                            <div>{pokemon.abilities[0]?.ability.name}</div>
+                            <div>{pokemon.abilities[1]?.ability.name}</div>
+                        </div>
+                    </div>
+                    <div className="rightDetails">
+                        <p>#00{pokemon.id}</p>
+                    </div>
+
+                </div>
+                <img style={{width:"220px",height:"220px"}} src={pokemon.sprites.front_default}></img>   
+            </div>
+
+            <div className="allCardTypes">
             <div className="Card_types">Type:  
                 {pokemon.types.map((type, index) => {
                     return ( <span key={index} className="Card_type" style={{backgroundColor: pokemonType[type.type.name]}}> {type.type.name} </span>
@@ -30,10 +48,13 @@ return (
             </div>
             <div className="Card_info">
                 <div className="Card_data Card_data--weight">
-                    <p className="title">Wight: {pokemon.weight}</p>
+                    <p className="title">height: {pokemon.height}</p>
                 </div>
                 <div className="Card_data Card_data--height">
-                    <p className="title">Weight: {pokemon.height}</p>
+                    <p className="title">Weight: {pokemon.weight}</p>
+                </div>
+                <div className="Card_data Card_data--stats">
+                    <p className="title">Stats: {pokemon.stats[0].stat.name}</p>
                 </div>
                 <div className="Card_data Card_data--ability">
                     <p className="title">Ability: {pokemon.abilities[0].ability.name}</p>

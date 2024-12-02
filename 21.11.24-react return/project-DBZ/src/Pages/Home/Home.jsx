@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../../Modal/Modal.jsx'
 import '../../Modal/Modal.css'
+import typeColors from '../../helpers/dragonballType.jsx';
 
 
 
@@ -14,8 +15,10 @@ const Home = () => {
   
   const fetchSingle = (id) => {
     console.log(`https://dragonball-api.com/api/characters/${id}`);
-    
+
   }
+
+  
   const handleClose = () => {
     
     setOpen(false);
@@ -54,7 +57,7 @@ if (error) {
   return(
     <>
 
-    <div className='card'>
+    <div className='card'> 
     {data.map(character => (
       <div key={character.id} onClick={() => fetchSingle(character.id)}>
         <h2>{character.name}</h2>

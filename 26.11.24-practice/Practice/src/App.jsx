@@ -1,7 +1,60 @@
 import './App.css'
 
 function App() {
-  // const numbersOne = [1, 2, 3];
+
+ const originalObject = {
+      name: "John",
+      age: 30,
+      address: null
+    };
+
+
+    const newObject ={...originalObject}
+
+    console.log(newObject)
+
+
+
+  return (
+    <>
+    
+      {/* <h1>{newObject}</h1> */}
+        
+    </>
+  )
+}
+
+
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // const numbersOne = [1, 2, 3];
   // const numbersTwo = [4, 5, 6];
   // const numbersThree = [7,8,9];
   // const arr = ["lama"];
@@ -33,18 +86,95 @@ function App() {
     // const newArr =["hello",...arr]
     // const arr =[1,2,3,4,5]
     // const newArr =["hello",...arr]
-    
 
-    
-
-  
-  return (
-    <>
-    <h1>{newArr}</h1>
+    // const originalObject = {
+    //   name: "John",
+    //   age: 30,
       
-        
-    </>
-  )
-}
+    // };
 
-export default App
+
+    // const originalObject2 = {
+    //   address: {
+    //     city: "New York",
+    //     zip: "10001"
+    //   }
+    // };
+
+    // const originalObject3 = {...originalObject,...originalObject2}
+
+
+    //  const originalObject = {
+    //   name: "John",
+    //   age: 30,
+      
+    // };
+
+    // const originalObject2 ={...originalObject,phone:2}
+
+    // console.log(originalObject2)
+
+
+
+    //  const originalObject = {
+    //   name: "John",
+    //   age: 30,
+      
+    // };
+
+    // const originalObject2 ={...originalObject,age:2}
+
+    // console.log(originalObject2)
+
+
+    // const originalObject = {
+    //   name: "John",
+    //   age: 30,
+      
+    // };
+
+
+    // const originalObject2 = {
+    //   address: {
+    //     city: "New York",
+    //     zip: "10001"
+    //   }
+    // };
+
+    // const originalObject3 = {
+    //   address: {
+    //     city: "Paris",
+    //     zip: "10001"
+    //   }
+    // };
+
+    // const originalObject4 = {...originalObject,...originalObject2,...originalObject3}
+
+    // console.log(originalObject4)
+
+
+    //  const originalObject = {
+    //   name: "John",
+    //   age: 30,
+      
+    // };
+
+    // const originalObject2 ={...originalObject}
+
+    // console.log(originalObject2)
+
+
+    
+  // function mergedObjects(...objects) {
+  //   return Object.assign({}, ...objects)
+  // }
+
+  // const object1 = { name: "John", age: 30 };  // אובייקט 1
+  // const object2 = { city: "Jerusalem", country: "Israel" };  // אובייקט 2
+  // const object3 = { phone: 555 };  // אובייקט 3
+
+  // const mergedObject = mergedObjects(object1, object2, object3);
+  // console.log(mergedObject)
+
+
+

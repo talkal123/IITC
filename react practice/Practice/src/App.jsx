@@ -1,23 +1,22 @@
-import { useState } from 'react'
 import './App.css'
+import Comp1 from './components/Comp1'
+import Comp2 from './components/Comp2'
+import ParentComp from './components/PerentComp'
 
 function App() {
-  const [name, setName] = useState("");
 
   
 
   return (
     <>
-  <form>
-    <label>Enter your name:
-      <input
-        type="text" 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <p>{name}</p>
-    </label>
-  </form>
+      <div className='App'>
+        <ParentComp>
+          <Comp1 />
+        </ParentComp>
+        <ParentComp>
+          <Comp2 />
+        </ParentComp>
+      </div>
     </>
   )
 }
