@@ -1,23 +1,24 @@
-import React, {useRef} from "react";
 
-function AppInput () {
-    const inputRef = useRef()
+import { useState, useEffect, useRef } from "react";
 
-    const inputValue = () => {
-        console.log(inputRef.current.value)
-        const value = inputRef.current.value
+function AppInput() {
+  const [inputValue, setInputValue] = useState("");
+  const count = useRef(0);
 
-    }
+  useEffect(() => {
+    count.current = count.current;
+  });
 
-
-    return (
-        <div className="container">
-            <h1>Input Value</h1>
-            <input ref={inputRef} type="text"></input>
-            <button onClick={inputValue}>click</button>
-            
-        </div>
-    )
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h1>Render Count: {count.current}</h1>
+    </>
+  );
 }
 
 
