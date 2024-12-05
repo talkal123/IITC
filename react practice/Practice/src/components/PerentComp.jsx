@@ -6,9 +6,7 @@ function ParentComp(props) {
     return (
         <div>
             <h1>Perents</h1>
-            <button onClick={() =>
-                setShow(true)
-            }>Show</button>
+            <button onClick={() => setShow(true)}>Show</button>
             {show && props.children}
         </div>
     )

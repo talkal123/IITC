@@ -1,17 +1,20 @@
 import React, {useRef} from "react";
 
 function AppInput () {
-    const inputRef = useRef();
+    const inputRef = useRef()
 
-    const changeColor = () => {
+    const inputValue = () => {
         console.log(inputRef.current.value)
+        const value = inputRef.current.value
 
     }
+
+
     return (
         <div className="container">
-            <h1>Enter your favorite color:</h1>
-            <input ref={inputRef} type="text" />
-            <button onClick={changeColor}>Choose</button>
+            <h1>Input Value</h1>
+            <input ref={inputRef} type="text"></input>
+            <button onClick={inputValue}>click</button>
             
         </div>
     )

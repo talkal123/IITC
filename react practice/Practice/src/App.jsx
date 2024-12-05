@@ -1,7 +1,6 @@
 import './App.css'
-import Comp1 from './components/Comp1'
-import Comp2 from './components/Comp2'
-import ParentComp from './components/PerentComp'
+import AppInput from './components/appInput'
+AppInput
 
 function App() {
 
@@ -10,12 +9,7 @@ function App() {
   return (
     <>
       <div className='App'>
-        <ParentComp>
-          <Comp1 />
-        </ParentComp>
-        <ParentComp>
-          <Comp2 />
-        </ParentComp>
+        <AppInput />
       </div>
     </>
   )
