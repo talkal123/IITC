@@ -1,6 +1,5 @@
 import './App.css'
-import AppInput from './components/appInput'
-AppInput
+import UserCard from './components/UserCard'
 
 function App() {
 
@@ -9,7 +8,7 @@ function App() {
   return (
     <>
       <div className='App'>
-        <AppInput />
+        <UserCard />
       </div>
     </>
   )

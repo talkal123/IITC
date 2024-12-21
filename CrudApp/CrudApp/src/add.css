@@ -1,0 +1,12 @@
+.d-flex{
+    border: 1px solid;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.w-50{
+    border: 1px solid;
+    padding: 100px;
+}
