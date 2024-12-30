@@ -1,32 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import './CoinById.css'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
-
-function CoinById() {
-
-    const [coin, setCoin] = useState([])
-
-    useEffect(() => {
-        const url = 'https://api.coingecko.com/api/v3/coins/markets'
-        axios.get(url)
-            .then(response => {
-                    setCoin(response.data)
-                        console.log(coin)
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error)
-            });
-    },[]);
+const CoinInfo = () => {
+  const[coinData,setCoinData] = useState(null);
+  const[loading,setLoading] = useState(true);
 
 
+  useEffect(() => {  
+    const api = 'https://api.coingecko.com/api/v3/coins/bitcoin';
+    console.log(api);
+    
+    axios.get(api).then(response => {
+      setCoinData(response.data);
+      setLoading(false)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>; // מציג "Loading..." בזמן שהמידע נטען
+  }
+
+  
 
   return (
     <div>
-      <div>Coin By Id</div>
+      <h1>{coinData ? coinData.name : 'No Indo Avaible'}</h1>
+      <h1>{coinData ? coinData.symbol: 'no'}</h1>
     </div>
-  )
+  );
 }
+  
 
-export default CoinById
+export default CoinInfo;
