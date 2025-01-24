@@ -4,9 +4,19 @@ import './CoinsGek.css'
 
 const CoinsGek = () => {
   const [coins, setCoins] = useState([])
-  const [error, setError] = useState(true)
-  const [loading, setLoading] = useState(true);
+  
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get("https://api.coingecko.com/api/v3/coins/list")
+      setUserData(data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  useEffect(() => {
+    fetchData()
+  }, []);
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -26,15 +36,6 @@ const CoinsGek = () => {
 
     fetchCoins();
   }, []);
-
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
 
 
   return (

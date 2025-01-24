@@ -8,6 +8,9 @@ import { useSearchParams } from 'react-router-dom'
       <h1>Filters</h1>
       <select name="select" id="">
         <option value="resturant">Resturant</option>
+        <option value="electronics">Electronics</option>
+        <option value="fastFood">Fast Food</option>
+
       </select>
     </div>
   )

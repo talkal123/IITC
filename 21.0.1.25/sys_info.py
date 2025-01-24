@@ -35,3 +35,12 @@ def get_machine_info():
 
 if __name__ == "__main__":
     get_machine_info()
+
+if True:
+    print("baba")
+
+a = 5
+b = 25
+print(a + b)
+
+
