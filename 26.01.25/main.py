@@ -122,10 +122,51 @@
 
 # Home Work
 
-arr = [1,2,3,4,5]
 
-x = sum(arr)
+# def calculate_sum(arr):
+#     return sum(arr)
 
-print(x)
+# arr = [1,2,3,4,5]
+
+# x = calculate_sum(arr)
+
+# print(x)
 
 
+
+# def func(x):
+#     if x == 1:
+#         return 1
+#     else:
+#         return x * func(x - 1)
+
+# print(func(2))
+
+
+# def isPalindrom(s):
+#     return s == s[::-1]
+
+
+# s = "malayalam"
+# ans = isPalindrom(s)
+
+# if ans:
+#     print("yes")
+# else:
+#     print("no")
+
+
+# numbers = [1, 2, 3, 4]
+# doubled = list(map(lambda x: x * 2, numbers))
+# print(doubled)
+
+
+
+# def largest_number(a, b, c):
+#     return max(a, b, c)
+# print(largest_number(5,7,9))
+
+
+def my_function(*args):
+   return sum(args)
+print(my_function(7,7))
