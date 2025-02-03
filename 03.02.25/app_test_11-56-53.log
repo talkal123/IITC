@@ -1,0 +1,8 @@
+2025-02-03 11:56:53,599 - INFO - Starting Automation Test... \u2705
+2025-02-03 11:56:55,839 - INFO - Navigating to the URL... \u2705
+2025-02-03 11:57:07,327 - INFO - Button Found... \u2705
+2025-02-03 11:57:07,327 - INFO - Clicking Button...
+2025-02-03 11:57:07,437 - INFO - Modal Button Clicked!\u2705
+2025-02-03 11:57:07,463 - INFO - Modal is displayed! \u2705
+2025-02-03 11:57:07,592 - INFO - Modal Closed! \u2705
+2025-02-03 11:57:07,592 - INFO - Automation Test Done! \u2705

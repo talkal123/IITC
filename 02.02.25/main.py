@@ -65,7 +65,81 @@ except ArithmeticError as e:
     logging.error("failed to click cart button")
 
 
-time.sleep(10)
+
+#form 
+try:
+    logging.info("form")
+    form = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//div[@class='MuiBox-root css-8f57v9']"))
+        )
+    logging.info("Succses in form")
+except ArithmeticError as e:
+    logging.error("failed to click form")
+
+#name
+name = driver.find_element(By.XPATH, "//input[@id=':r5:']")
+assert name.is_displayed(), "The element 'name' is not displayed"
+name.send_keys("null.com")
+
+#email
+email = driver.find_element(By.XPATH, "//input[@id=':r7:']")
+assert email.is_displayed(), "The element 'email' is not displayed"
+email.send_keys("null.com")
+
+
+
+#message
+message = driver.find_element(By.XPATH, "//textarea[@id=':r9:']")
+assert message.is_displayed(), "The element 'message' is not displayed"
+message.send_keys("null.com")
+
+
+try:
+    logging.info("submit")
+    submit = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//button[normalize-space()='Submit']"))
+        ).click()
+    logging.info("Succses in submit")
+except ArithmeticError as e:
+    logging.error("failed to click submit")
+
+
+try:
+    email_invalid = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "//p[@id=':r7:-helper-text']"))
+    )
+    print("✅ The error message is displayed:", email_invalid.text)
+except TimeoutException:
+    print("❌ The error message did not appear!")
+
+
+try:
+    show_cart_button = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "//button[normalize-space()='Show Cart']"))
+    ).click()
+except ArithmeticError as e:
+    logging.error("failed to click show cart button")
+    
+try:
+    show_cart_table = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[@class='MuiBox-root css-13btgba']"))
+    ).click()
+except ArithmeticError as e:
+    logging.error("failed to click show cart table")
+
+try:
+    accordion = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[@class='MuiBox-root css-19i7e4c']//div[1]//button[1]"))
+    ).click()
+except ArithmeticError as e:
+    logging.error("failed to click show cart table")
+
+time.sleep(3)
+
+
+
+
+
 
 
 

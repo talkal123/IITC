@@ -1,0 +1,5 @@
+2025-02-03 11:14:26,095 - INFO - Starting Automation Test... \u2705
+2025-02-03 11:14:30,516 - ERROR - Button found
+2025-02-03 11:14:30,516 - ERROR - Click Button
+2025-02-03 11:14:30,597 - ERROR - Alert Button clicked
+2025-02-03 11:14:30,599 - ERROR - Text does not match  the alert

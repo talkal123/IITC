@@ -1,0 +1,6 @@
+2025-02-03 11:15:07,720 - INFO - Starting Automation Test... \u2705
+2025-02-03 11:15:12,008 - INFO - Button found
+2025-02-03 11:15:12,008 - INFO - Clicking Button
+2025-02-03 11:15:12,070 - INFO - Waiting for alert...
+2025-02-03 11:15:12,072 - INFO - Alert text: I am a JS Alert
+2025-02-03 11:15:12,073 - ERROR - Error: Text does not match the alert

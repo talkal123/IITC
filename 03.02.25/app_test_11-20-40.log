@@ -1,0 +1,11 @@
+2025-02-03 11:20:40,023 - INFO - Starting Automation Test... \u2705
+2025-02-03 11:20:41,815 - INFO - Navigating to the URL... \u2705
+2025-02-03 11:20:44,108 - INFO - Button Found... \u2705
+2025-02-03 11:20:44,108 - INFO - Clicking Button...
+2025-02-03 11:20:44,178 - INFO - Alert Button Clicked!\u2705
+2025-02-03 11:20:44,180 - INFO - Text Does match the alert!\u2705
+2025-02-03 11:20:44,194 - INFO - Button Found... \u2705
+2025-02-03 11:20:44,195 - INFO - Clicking Button...
+2025-02-03 11:20:44,237 - INFO - Alert Button Clicked!\u2705
+2025-02-03 11:20:44,239 - INFO - Text Does match the alert!\u2705
+2025-02-03 11:20:49,252 - INFO - Automation Test Done! \u2705
