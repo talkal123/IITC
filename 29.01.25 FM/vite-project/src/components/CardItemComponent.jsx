@@ -6,9 +6,11 @@ import dummyData from '../data.json'
 const CardItemComponent = () => {
     const [data, setData] = useState(dummyData)
     
+    
+    
   return (
     <div className='border'>
-      <Item data = {data}/>
+      <Item data = {data} />
     </div>
   )
 }

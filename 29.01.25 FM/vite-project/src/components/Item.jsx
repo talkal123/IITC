@@ -7,6 +7,9 @@ const Item = ({ data }) => {
   // const [category,setCategory] = useState('')
   // const [price,setPrice] = useState('')
   const [cartItems, setCartItems] = useState([])
+  console.log(cartItems);
+  
+  const [quantity, setQuantity] = useState(0)
   
 
   function handleClick(item) {
@@ -16,9 +19,16 @@ const Item = ({ data }) => {
     // console.log(item.name);
     // console.log(item.category);
     // console.log(item.price);
-
-    setCartItems(lastItems => [...lastItems], item)
+    setQuantity(quantity +1)
+    setCartItems(lastItems => [...lastItems, item])
+    // for i = 0; i.length; i++(
+    //   if
+    // )
     
+  }
+
+  function handleClickMinus(item){
+    setCartItems(cartItems.slice(0, -1))
   }
 
   return (
@@ -32,7 +42,7 @@ const Item = ({ data }) => {
               <p className='text-gray-400 text-sm'>{item.category}</p>
               <p className='font-bold'>{item.name}</p>
               <p className='font-bold text-orange-500'>{item.price} $</p>
-              <button onClick={() => handleClick(item)} ><AddToCart /></button>
+                <AddToCart  onAdd ={() => handleClick(item)} onMinus ={() => handleClickMinus(item)}/>
             </div>
           </div>
         ))}
@@ -40,9 +50,13 @@ const Item = ({ data }) => {
       <div className='border p-4'>
         <h2 className='font-bold mb-2'>Items in Cart:</h2>
         {cartItems.map((item, index) => (
-          <div key={index} className='border-b p-2'>
-            <p>{item.name}</p>
-            <p>{item.price} $</p>
+          <div key={index} className='border-b p-2 jus flex justify-between'>
+            <div>
+              <p className='font-semibold'>{item.name}</p>
+              <div>Price: {item.price} <span className='text-green-700'>$</span></div>
+              <p>Quantity: {quantity}</p>
+            </div>
+            <div onClick={handleClickMinus} className='hover:bg-orange-300 cursor-pointer border rounded-full w-5 h-5 flex items-center justify-center'><div>-</div></div>
           </div>
         ))}
       </div>
