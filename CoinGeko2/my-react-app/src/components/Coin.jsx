@@ -5,7 +5,6 @@ import { IoIosTrendingUp } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const Coin = ({ coin }) => {
-  console.log(coin);
 
   return (
     <Link to={`/coin/${coin.id}`}>

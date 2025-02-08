@@ -50,33 +50,26 @@ date_order = WebDriverWait(driver, 10).until(
 
 date_order.click()
 
-im_flexible_btn = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//div[@role='dialog']//button[2]"))
+
+calender = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Calendar']"))
 )
 
-im_flexible_btn.click()
+calender.click()
 
 
-weekend_btn = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//*[name()='circle' and contains(@cx,'12')]"))
+date_one = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]/button[1]"))
 )
 
-weekend_btn.click()
+date_one.click()
 
-month_btn = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//div[@class='rounded-xl border shadow-none cursor-pointer border-primary text-[#006ce4] bg-[#f2f6fe] hover:bg-[#f2f6fe]']//div[@class='p-6 py-[15px] flex gap-1 flex-col items-center justify-center h-full rounded-md']"))
+
+date_order_two = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[7]/button[1]"))
 )
 
-month_btn.click()
+date_order_two.click()
 
 
-
-
-# date_order_two = WebDriverWait(driver, 10).until(
-#     EC.element_to_be_clickable((By.XPATH, "//body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[7]/button[1]"))
-# )
-
-# date_order_two.click()
-
-
-time.sleep(10)
+time.sleep(2)

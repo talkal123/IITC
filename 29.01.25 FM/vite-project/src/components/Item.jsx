@@ -13,17 +13,32 @@ const Item = ({ data }) => {
   
 
   function handleClick(item) {
+    //#1
     // setName(item.name); // שמירת הקטגוריה ב-state
     // setCategory(item.category); // שמירת הקטגוריה ב-state
     // setPrice(item.price + " $"); // שמירת הקטגוריה ב-state
     // console.log(item.name);
     // console.log(item.category);
     // console.log(item.price);
+    //#2
     setQuantity(quantity +1)
     setCartItems(lastItems => [...lastItems, item])
-    // for i = 0; i.length; i++(
-    //   if
-    // )
+
+    let found = false
+    for (let i = 0; i < cartItems.length; i++){
+      if (cartItems[i].name === item.name){
+        cartItems[i].quantity ++
+        found = true
+      }
+      if (found){
+
+      }
+      console.log(i);
+      console.log(found);
+      
+      
+    }
+    
     
   }
 
