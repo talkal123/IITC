@@ -2,5 +2,5 @@
 export default undefined;
 
 export function useBottomTabOverflow() {
-  return 20;
+  return 0;
 }
