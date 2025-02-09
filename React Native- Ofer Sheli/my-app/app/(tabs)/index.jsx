@@ -6,7 +6,8 @@ import Message from '../components/Message';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Message />
+      <Message txt = "Hello" color="green"/>
+      <Message txt = "Bye"  color="red"/>
     </View>
   );
 }
