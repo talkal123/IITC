@@ -1,13 +1,14 @@
 import { Image, StyleSheet, Platform, View,Text } from 'react-native';
 import Message from '../components/Message';
-
+import Screen1 from '../components/Screen1'
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Message txt = "Hello" color="green"/>
-      <Message txt = "Bye"  color="red"/>
+      <Screen1 />
+      {/* <Message txt = "Hello" color="green"/>
+      <Message txt = "Bye"  color="red"/> */}
     </View>
   );
 }
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 48,
     backgroundColor: '#fff',
-    // alignItems: 'center',
+    alignItems: 'center',
     // justifyContent: 'center',
   },
   textRed: {
