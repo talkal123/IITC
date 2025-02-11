@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     },
     box3:{
         flex:1,
-        backgroundColor: "yellow",
+        backgroundColor: "green",
     },
 })

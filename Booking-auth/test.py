@@ -58,18 +58,32 @@ calender = WebDriverWait(driver, 10).until(
 calender.click()
 
 
-date_one = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]/button[1]"))
+adult_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//div[@class='flex-grow py-1 px-2 focus:outline-none placeholder:text-black placeholder:font-medium flex flex gap-2']"))
 )
 
-date_one.click()
+adult_button.click()
 
 
-date_order_two = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[7]/button[1]"))
+children_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//div[@role='dialog']//div[2]//div[1]//button[2]//*[name()='svg']"))
 )
 
-date_order_two.click()
+children_button.click()
 
 
-time.sleep(2)
+done_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Done']"))
+)
+
+done_button.click()
+
+
+# search_button = WebDriverWait(driver, 10).until(
+#     EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Search']"))
+# )
+
+# search_button.click()
+
+
+time.sleep(10)
