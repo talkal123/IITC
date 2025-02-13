@@ -39,22 +39,26 @@ def test_home_page(driver):
 
 def test_language_button(driver):
     language = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "(//img[@alt='state flag avatar for languages change'])[1]"))
+        EC.element_to_be_clickable((By.XPATH, "(//img[@alt='state flag avatar for languages change'])[1]"))
     )
     language.click()
+    
+    time.sleep(2)
     
     
    
 def test_hebrew_button(driver):
     hebrew_button = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "//body/div[@role='dialog']/div[2]/button[1]/span[1]/img[1]"))
+        EC.element_to_be_clickable((By.XPATH, "//body/div[@role='dialog']/div[2]/button[1]/span[1]/img[1]"))
     )
     hebrew_button.click()
     
+    time.sleep(2)
+
 
 def test_language_button_new(driver):
     language_new = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "(//img[@alt='state flag avatar for languages change'])[1]"))
+        EC.element_to_be_clickable((By.XPATH, "(//img[@alt='state flag avatar for languages change'])[1]"))
     )
     language_new.click()
     
@@ -196,7 +200,7 @@ def test_list_button(driver):
     )
     grid_button.click()
     
-    time.sleep(2)
+    time.sleep(5)
 
 
 def test_grid_button(driver):
@@ -205,7 +209,7 @@ def test_grid_button(driver):
     )
     grid_button.click()
     
-    time.sleep(2)
+    time.sleep(5)
     
 def test_filter_scroll(driver):
     filter_locator = (By.XPATH, "//body/div/div/div/div/div/div/div/div/div[4]")
