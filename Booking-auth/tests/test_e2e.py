@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -45,7 +46,8 @@ def test_language_button(driver):
     
     time.sleep(2)
     
-    
+    driver.save_screenshot(f"screenshots/screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+ 
    
 def test_hebrew_button(driver):
     hebrew_button = WebDriverWait(driver, 10).until(
@@ -93,6 +95,8 @@ def test_hotels_scroll(driver):
     driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", hotels)
     
     time.sleep(5)
+    
+    driver.save_screenshot(f"screenshots/screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
     
 def test_search_scroll(driver):
     search_locator = (By.XPATH, "(//div[@class='border text-card-foreground shadow border-search flex flex-col md rounded-[8px] p-1 bg-search gap-1 search:flex-row font-medium justify-items-stretch'])[1]")
@@ -211,6 +215,8 @@ def test_grid_button(driver):
     
     time.sleep(5)
     
+    driver.save_screenshot(f"screenshots/screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+    
 def test_filter_scroll(driver):
     filter_locator = (By.XPATH, "//body/div/div/div/div/div/div/div/div/div[4]")
     
@@ -322,6 +328,7 @@ def test_internet_element_scroll(driver):
     )
 
     driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", internet_element)
+    driver.save_screenshot(f"screenshots/screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
     
     time.sleep(2)
     
@@ -342,6 +349,7 @@ def test_check_button(driver):
         EC.presence_of_element_located((By.XPATH, "(//a[@class='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-[#006ce4] text-primary-foreground shadow hover:bg-[#0057b8] h-9 px-4 py-2 text-sm'][normalize-space()='See availability'])[4]"))
     )
     check_element_button.click()
+    
     
     time.sleep(5)
 

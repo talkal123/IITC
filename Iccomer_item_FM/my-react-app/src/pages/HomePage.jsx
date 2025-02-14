@@ -1,10 +1,30 @@
-import React from 'react'
-import Nav from '../components/Nav'
+import { useState, useEffect } from 'react'
+import Item from '../components/Item'
+import ItemDetails from '../components/ItemDetails'
+import axios from 'axios'
+import CardItemHomePage from '../components/CardItemHomePage'
 
 const HomePage = () => {
+  const [products, setProducts] = useState([])
+  
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  const getItems = () => {
+    axios.get('https://dummyjson.com/products')
+    .then(res => {
+      setProducts(res.data.products)
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
   return (
-    <div className='max-w-[1100px]'>
-      <Nav />
+    <div className='grid grid-cols-4 gap-5'>
+      {products.map(products => (
+        <CardItemHomePage products={products}/>
+      ))}
     </div>
   )
 }
