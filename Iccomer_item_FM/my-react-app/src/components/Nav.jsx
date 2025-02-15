@@ -11,7 +11,7 @@ const Nav = () => {
         <div className="mt-2">
           <ul  className="flex gap-3">
             <li className="text-gray-500">
-              <Link to="/">Collection</Link>
+              <Link to="/Home">Collection</Link>
             </li>
             <li className="text-gray-500">
               <Link to="/men">Men</Link>

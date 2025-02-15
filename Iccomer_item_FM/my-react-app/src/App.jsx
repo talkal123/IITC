@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
     <Nav />
       <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/Item" element={<ItemPage />}/>
+          <Route path="/Home" element={<HomePage />}/>
+          <Route path="/product/:id" element={<ItemPage />}/>
       </Routes>
     </BrowserRouter>
     </div>
