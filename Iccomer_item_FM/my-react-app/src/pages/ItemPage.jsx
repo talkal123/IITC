@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 
-const ItemPage = () => {
+const ItemPage = ({handleClick}) => {
   const [product, setProduct] = useState([])
   const { id } = useParams();
 
@@ -30,7 +30,7 @@ const ItemPage = () => {
     <div>
       <div className='grid grid-cols-2'>
         <Item product={product}/>
-        <ItemDetails product={product}/>
+        <ItemDetails product={product} handleClick={handleClick} />
     </div>
     </div>
   )

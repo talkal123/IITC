@@ -9,21 +9,21 @@ const Item = ({ product }) => {
   const arr = [0, 1, 2, 3, ];  
 
   return (
-    <div className='border'>
+    <div className=''>
       <div>
         <div> 
-          <div className='border'>
+          <div className=''>
             <img src={product.images[0]} className='max-h-[400px]' alt="" />
           </div>
 
           <div className='grid grid-cols-4 gap-2 mt-2'>
             {arr.map((index) => {
               return (
-                <div key={index} className='border'>
+                <div key={index} className='border rounded-lg'>
                   {product.images[index] ? (
                     <div><img src={product.images[index]} alt={`Small image ${index}`} /></div>
                   ) : (
-                    <div className="w-full h-24 bg-gray-200"></div> // דיב ריק אם אין תמונה
+                    <div className="w-full h-24 bg-gray-200"></div> 
                   )}
                 </div>
               );

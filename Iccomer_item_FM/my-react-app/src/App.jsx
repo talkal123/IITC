@@ -3,15 +3,61 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Nav from "./components/Nav";
 import ItemPage from "./pages/ItemPage";
+import { useState } from "react";
+import Cart from "./components/Cart";
 
 function App() {
+  const [show,setShow] = useState(true);
+  const [cart,setCart] = useState([]);
+  const [warning, setWarning] = useState(false)
+
+  const handleClick = (item) => {
+    let isPresent = false;
+    cart.forEach((product) => {
+      if (item.id === product.id)
+        isPresent = true;
+    })
+    if (isPresent){
+      setTimeout(() => {
+        alert("This item is on your cart")
+      }, 1000);
+      return;
+      
+    }
+    item.amount = 1;
+    setCart([...cart, item])
+    
+  }
+
+  const handleChange = (item, d) =>{
+    let ind = -1;
+    cart.forEach((data, index)=>{
+      if(data.id === item.id)
+        ind = index;
+    });
+    const tempArr = [...cart];
+    tempArr[ind].amount += d;
+
+    if (tempArr[ind].amount <= 0)
+      tempArr[ind].amount = 1;
+    setCart(tempArr);
+    
+  }
+
   return (
     <div className="max-w-[1100px] mx-auto">
     <BrowserRouter>
-    <Nav />
+    <Nav size={cart.length} />
       <Routes>
           <Route path="/Home" element={<HomePage />}/>
-          <Route path="/product/:id" element={<ItemPage />}/>
+          <Route 
+          path="/product/:id"
+          element={<ItemPage handleClick={handleClick} />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+          />
       </Routes>
     </BrowserRouter>
     </div>

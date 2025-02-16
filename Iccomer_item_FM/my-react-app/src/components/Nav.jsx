@@ -1,12 +1,13 @@
 import ReactDOM from "react-dom/client";
 import { Outlet, Link } from "react-router-dom";
+import { HiShoppingCart } from "react-icons/hi";
 
-const Nav = () => {
+const Nav = ({size, setShow}) => {
   return (
     <div className="p-8 border-b-2 flex justify-between">
       <div className="flex gap-10">
         <div>
-          <h1 className="font-bold text-3xl">Sneakers</h1>
+          <h1 onClick={() => setShow(true)} className="font-bold text-3xl">T&C Fashion</h1>
         </div>
         <div className="mt-2">
           <ul  className="flex gap-3">
@@ -29,7 +30,13 @@ const Nav = () => {
         </div>
       </div>
       <div className="flex items-center gap-5">
-        <div>cart</div>
+        <div>
+          {/* כפתור ה-Cart מוביל לדף העגלה */}
+          <Link to="/cart">
+            <HiShoppingCart className="w-5 h-5" />
+            <span>{size}</span>
+          </Link>
+        </div>
         <div className="border rounded-full h-8 w-8"></div>
       </div>
     </div>
