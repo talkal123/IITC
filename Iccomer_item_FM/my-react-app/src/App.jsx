@@ -5,6 +5,8 @@ import Nav from "./components/Nav";
 import ItemPage from "./pages/ItemPage";
 import { useState } from "react";
 import Cart from "./components/Cart";
+import MenPage from "./pages/MenPage";
+import WomenPage from "./pages/WomenPage";
 
 function App() {
   const [show,setShow] = useState(true);
@@ -57,6 +59,16 @@ function App() {
           <Route
             path="/cart"
             element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+          />
+          <Route
+            path="/men"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<MenPage />}
+          />
+          <Route
+            path="/women"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<WomenPage />}
           />
       </Routes>
     </BrowserRouter>

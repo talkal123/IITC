@@ -30,11 +30,12 @@ const Nav = ({size, setShow}) => {
         </div>
       </div>
       <div className="flex items-center gap-5">
-        <div>
-          {/* כפתור ה-Cart מוביל לדף העגלה */}
+        <div className="">
           <Link to="/cart">
+            <div className="flex flex-col items-center ">
             <HiShoppingCart className="w-5 h-5" />
             <span>{size}</span>
+            </div>
           </Link>
         </div>
         <div className="border rounded-full h-8 w-8"></div>
