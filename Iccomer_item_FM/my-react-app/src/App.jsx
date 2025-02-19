@@ -7,6 +7,8 @@ import { useState } from "react";
 import Cart from "./components/Cart";
 import MenPage from "./pages/MenPage";
 import WomenPage from "./pages/WomenPage";
+import HomeDecoration from "./pages/HomeDecoration";
+import HeaderPhoto from "./components/HeaderPhoto";
 
 function App() {
   const [show,setShow] = useState(true);
@@ -50,8 +52,9 @@ function App() {
     <div className="max-w-[1100px] mx-auto">
     <BrowserRouter>
     <Nav size={cart.length} />
+    <HeaderPhoto />
       <Routes>
-          <Route path="/Home" element={<HomePage />}/>
+          <Route path="/" element={<HomePage />}/>
           <Route 
           path="/product/:id"
           element={<ItemPage handleClick={handleClick} />}
@@ -64,6 +67,11 @@ function App() {
             path="/men"
             // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
             element={<MenPage />}
+          />
+          <Route
+            path="/decoration"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<HomeDecoration />}
           />
           <Route
             path="/women"

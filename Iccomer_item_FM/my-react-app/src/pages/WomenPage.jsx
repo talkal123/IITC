@@ -29,7 +29,7 @@ const WomenPage = () => {
 
   return (
     <>
-      <div>
+      <div className="flex flex-col">
         <label for="select-option">Choose an option:</label>
         <select id="select-option" value={category} onChange={handleCategoryChange}>
           <option value="womens-bags">womens-bags</option>

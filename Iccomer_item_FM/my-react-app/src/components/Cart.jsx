@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from "@/components/ui/button"
 
 const Cart = ({cart, setCart, handleChange}) => {
     const [price, setPrice] = useState(0)
@@ -20,12 +21,12 @@ const Cart = ({cart, setCart, handleChange}) => {
         handlePrice();
     }, [cart]);
     return (
-        <article className='border w-[300px] mx-auto'>
+        <article className='border w-[300px] mx-auto rounded-lg'>
             {
                 cart.map((item) => (
                     <div className='border-b p-4' key={item.id}>
                         <div className='flex items-center space-x-2'>
-                            <img src={item.images} alt={item.title} className="w-16 h-16 object-cover" />
+                            <img src={item.images[0]} alt={item.title} className="w-16 h-16 object-cover" />
                             <p className='font-semibold'>{item.title}</p>
                         </div>
                         <div className='flex items-center justify-between my-2'>
@@ -50,7 +51,7 @@ const Cart = ({cart, setCart, handleChange}) => {
                 ))}
             <div className='p-4'>
                 <span>Total Price of your Cart: </span>
-                <span className='font-bold text-green-700'> {price} $</span>
+                <span className='font-bold text-green-700'>{Math.round(price)} $</span>
             </div>
         </article>
     )

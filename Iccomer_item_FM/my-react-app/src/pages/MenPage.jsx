@@ -3,6 +3,7 @@ import Item from "../components/Item";
 import ItemDetails from "../components/ItemDetails";
 import axios from "axios";
 import CardItemHomePage from "../components/CardItemHomePage";
+import { Button } from "@/components/ui/button"
 
 const MenPage = () => {
   const [products, setProducts] = useState([]);
