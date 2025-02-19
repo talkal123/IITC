@@ -1,5 +1,9 @@
 import React from 'react';
 import Furniture from '../../assets/Furniture.png';
+import Travels from '../../assets/Travels.png';
+import Sneakers from '../../assets/Sneakers.png';
+import Books from '../../assets/Books.png';
+import HandBag from '../../assets/HandBag.png';
 
 const ShopOurTop = () => {
   const arr = [
@@ -8,27 +12,27 @@ const ShopOurTop = () => {
         img: Furniture
     },
     {
-        title: "Furniture",
-        img: Furniture
+        title: "Travels",
+        img: Travels
     },
     {
-        title: "Furniture",
-        img: Furniture
+        title: "Sneakers",
+        img: Sneakers
     },
     {
-        title: "Furniture",
-        img: Furniture
+        title: "Books",
+        img: Books
     },
     {
-        title: "Furniture",
-        img: Furniture
+        title: "HandBag",
+        img: HandBag
     },
 ];
 
   return (
-    <div className='p-10 flex flex-col gap-10'>
+    <div className='p-16 flex flex-col gap-12'>
       <h1 className='font-bold text-2xl'>Shop Our Top</h1>
-      <div className='flex gap-5'>
+      <div className='grid grid-cols-3 md:flex gap-5'>
         {arr.map((item, index) => (
           <div key={index} className='relative overflow-hidden rounded-lg group max-w-[250px] max-h-[300px]'>
             <img
