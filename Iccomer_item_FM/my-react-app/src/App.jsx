@@ -52,7 +52,6 @@ function App() {
     <div className="max-w-[1100px] mx-auto">
     <BrowserRouter>
     <Nav size={cart.length} />
-    <HeaderPhoto />
       <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route 

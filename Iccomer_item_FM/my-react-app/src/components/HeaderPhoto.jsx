@@ -1,29 +1,21 @@
-import React from 'react'
+import React from "react";
+import Photo from "../assets/pawel-czerwinski-p2HouwZKIJQ-unsplash.jpg"
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-  } from "@/components/ui/carousel"
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 
 const HeaderPhoto = () => {
-    const sliders = [
-        
-    ]
   return (
-    <div>
-      <Carousel>
-  <CarouselContent>
-    <CarouselItem>...</CarouselItem>
-    <CarouselItem>...</CarouselItem>
-    <CarouselItem>...</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
-    </div>
-  )
-}
+    <Card className="w-auto">
+        <img className="w-[100%] object-cover max-h-[400px]" src={Photo} alt="" />
+     
+    </Card>
+  );
+};
 
-export default HeaderPhoto
+export default HeaderPhoto;
