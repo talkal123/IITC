@@ -4,6 +4,7 @@ import Travels from '../../assets/Travels.png';
 import Sneakers from '../../assets/Sneakers.png';
 import Books from '../../assets/Books.png';
 import HandBag from '../../assets/HandBag.png';
+import Tech from '../../assets/Tech.png';
 
 const ShopOurTop = () => {
   const arr = [
@@ -26,6 +27,10 @@ const ShopOurTop = () => {
     {
         title: "HandBag",
         img: HandBag
+    },
+    {
+        title: "Tech",
+        img: Tech
     },
 ];
 

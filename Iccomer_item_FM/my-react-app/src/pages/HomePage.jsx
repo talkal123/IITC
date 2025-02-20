@@ -5,9 +5,12 @@ import axios from 'axios'
 import CardItemHomePage from '../components/CardItemHomePage'
 import HeaderPhoto from '@/components/HeaderPhoto'
 import ShopOurTop from '@/components/HomePageComponents/ShopOurTop'
+import ChooseByBrand from '@/components/HomePageComponents/ChooseByBrand'
+import GetUpto from '@/components/HomePageComponents/GetUpto'
 
 const HomePage = () => {
   const [products, setProducts] = useState([])
+  
   
   useEffect(() => {
     getItems();
@@ -21,16 +24,23 @@ const HomePage = () => {
       console.log(err);
     })
   }
+  
 
   return (
     <>
     <HeaderPhoto />
     <ShopOurTop />
-    <div className='grid grid-cols-1 gap-5 md:grid-cols-4'>
-      {products.slice(0,4).map(products => (
-        <CardItemHomePage products={products}/>
-      ))}
+    <div className='p-16 flex flex-col gap-12'>
+      <h1 className='font-bold text-2xl'>Todays Best Deals for you!</h1>
+      <div className='grid grid-cols-1 gap-5 md:grid-cols-3'>
+        {products.slice(0,3).map(products => (
+          <CardItemHomePage products={products}/>
+        ))}
+      </div>
+      <ChooseByBrand />
+      <GetUpto />
     </div>
+    
     </>
   )
 }
