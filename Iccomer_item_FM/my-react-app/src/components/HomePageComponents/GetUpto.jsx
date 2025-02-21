@@ -36,7 +36,7 @@ const GetUpto = () => {
     },
   ];
   return (
-    <div className="p-4 flex flex-col gap-10">
+    <div className="p-16 flex flex-col gap-10">
         <h1 className={`text-2xl font-bold`}>Get Up to 70% off</h1>
     <div className="gap-2 grid grid-cols-2 md:flex">
       {arr.map((item, index) => (

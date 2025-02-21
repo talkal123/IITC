@@ -16,7 +16,6 @@ const ItemPage = ({handleClick}) => {
   const getProduct = () => {
     axios.get(`https://dummyjson.com/products/${id}`)
     .then(res => {
-      console.log(res.data);
       setProduct(res.data)
     }).catch(err => {
       console.log(err);

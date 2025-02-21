@@ -9,6 +9,7 @@ import ChooseByBrand from "@/components/HomePageComponents/ChooseByBrand";
 import GetUpto from "@/components/HomePageComponents/GetUpto";
 import HomePicture from "@/components/HomePageComponents/HomePicture";
 import TodaysBestDeals from "@/components/HomePageComponents/TodaysBestDeals";
+import Cards from "@/components/HomePageComponents/Cards";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -52,6 +53,7 @@ const HomePage = () => {
       </div>
       <HomePicture />
       <TodaysBestDeals />
+      <Cards />
     </>
   );
 };

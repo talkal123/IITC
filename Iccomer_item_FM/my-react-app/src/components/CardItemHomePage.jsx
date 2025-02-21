@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Star from "../assets/Star.png"
+import { Button } from './ui/button';
 
 const CardItemHomePage = ({products}) => {
     console.log(products);
@@ -10,7 +11,7 @@ const CardItemHomePage = ({products}) => {
     
   return (
     <div>
-      <div className="p-4 border rounded-lg shadow-md min-h-[405px]">
+      <div className="p-4 border rounded-lg shadow-md min-h-[405px] flex flex-col">
         {products.images.length > 0 ? (
           <img src={products.images[0]} alt={products.title} className="w-full h-48 object-cover rounded-md" />
 
@@ -23,8 +24,11 @@ const CardItemHomePage = ({products}) => {
         <span>({Math.round(products.rating)})</span>
       </div>
       <p className="text-gray-500">{products.brand}</p>
+      <div className='flex flex-col gap-2'>
       <p className="text-xl font-bold text-green-500 mt-2">${products.price}</p>
-      <Link to={`/product/${products.id}`}><button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg w-full">View Details</button></Link>
+        {/* <Link to={`/product/${products.id}`}><button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg w-full">View Details</button></Link> */}
+        <Link to={`/product/${products.id}`}><Button variant="outline" className="hover:bg-green-900 hover:text-white">View Details</Button></Link>
+      </div>
     </div>
     </div>
   )
