@@ -29,8 +29,6 @@ const TodaysBestDeals = () => {
   const arr = [
     { title: "beauty", value: "beauty" },
     { title: "fragrances", value: "fragrances" },
-    { title: "furniture", value: "furniture" },
-    { title: "groceries", value: "groceries" },
     { title: "home-decoration", value: "home-decoration" },
     { title: "laptops", value: "laptops" },
     { title: "mobile-accessories", value: "mobile-accessories" },
@@ -47,23 +45,20 @@ const TodaysBestDeals = () => {
   return (
     <div className="p-16 flex flex-col gap-10">
       <h1 className="text-3xl font-bold">Todays Best Deals for you!</h1>
-      <div className="flex gap-3">
-        {arr.map((item, index) => (
-          <button
-            key={index}
-            value={item.value}
-            onClick={() => handleClick(index,item.value)} // מעבירים את האינדקס של הכפתור
-            className={`border rounded-full p-1 font-semibold 
-                            ${
-                              selectedIndex === index
-                                ? "bg-green-900 text-white"
-                                : "bg-white text-black"
-                            }`} 
-          >
-            {item.title}
-          </button>
-        ))}
-      </div>
+      <div className="inline md:flex">
+  {arr.map((item, index) => (
+    <button
+      key={index}
+      value={item.value}
+      onClick={() => handleClick(index, item.value)}
+      className={`border rounded-full pr-6 pl-6 font-semibold 
+                  ${selectedIndex === index ? "bg-green-900 text-white" : "bg-white text-black"} 
+                  mr-2 mt-2`}  
+    >
+      {item.title}
+    </button>
+  ))}
+</div>
       <div className="grid grid-cols-3 gap-5 mt-5">
         {products.slice(0,6).map((products) => (
           <CardItemHomePage products={products} /> 

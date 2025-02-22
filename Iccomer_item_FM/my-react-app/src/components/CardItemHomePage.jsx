@@ -13,7 +13,7 @@ const CardItemHomePage = ({products}) => {
     <div>
       <div className="p-4 border rounded-lg shadow-md min-h-[405px] flex flex-col">
         {products.images.length > 0 ? (
-          <img src={products.images[0]} alt={products.title} className="w-full h-48 object-cover rounded-md" />
+          <img src={products.images[0]} alt={products.title} className="w-full h-48 object-cover rounded-md hover:scale-110 transition-transform duration-300 bg-[#aaaaaa29]" />
 
         ) : (
           <div className="w-full h-24 bg-gray-200"></div>

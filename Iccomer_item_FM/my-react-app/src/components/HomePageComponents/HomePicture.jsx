@@ -1,6 +1,5 @@
 import React from 'react'
 import HomePhoto from '../../assets/Home.jpg'
-import { Button } from '../ui/button'
 
 const HomePicture = () => {
   return (

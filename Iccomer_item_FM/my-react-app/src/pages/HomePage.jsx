@@ -10,6 +10,9 @@ import GetUpto from "@/components/HomePageComponents/GetUpto";
 import HomePicture from "@/components/HomePageComponents/HomePicture";
 import TodaysBestDeals from "@/components/HomePageComponents/TodaysBestDeals";
 import Cards from "@/components/HomePageComponents/Cards";
+import MostSelling from "@/components/HomePageComponents/MostSelling";
+import TrendingProducts from "@/components/HomePageComponents/TrendingProducts";
+import BestSelling from "@/components/HomePageComponents/BestSelling";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -54,6 +57,9 @@ const HomePage = () => {
       <HomePicture />
       <TodaysBestDeals />
       <Cards />
+      <MostSelling products={products}/>
+      <TrendingProducts />
+      <BestSelling />
     </>
   );
 };
