@@ -129,9 +129,14 @@ const Nav = ({ size, setShow }) => {
       <div className="flex items-center gap-5">
         <div className="">
           <Link to="/cart">
-            <div className="flex flex-col items-center ">
+            <div className="flex flex-col-reverse items-center ">
               <HiShoppingCart className="w-5 h-5" />
-              <span>{size}</span>
+              {size > 0 ? (
+                <div className="rounded-full bg-green-900 pr-2 pl-2"><span className="text-white">{size}</span></div>
+
+              ): (
+                <span>{size}</span>
+              )}
             </div>
           </Link>
         </div>

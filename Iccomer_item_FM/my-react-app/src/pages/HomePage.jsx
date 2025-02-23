@@ -13,6 +13,7 @@ import Cards from "@/components/HomePageComponents/Cards";
 import MostSelling from "@/components/HomePageComponents/MostSelling";
 import TrendingProducts from "@/components/HomePageComponents/TrendingProducts";
 import BestSelling from "@/components/HomePageComponents/BestSelling";
+import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -33,7 +34,7 @@ const HomePage = () => {
   };
 
   return (
-    <>
+    <div>
       <HeaderPhoto />
       <ShopOurTop />
       <div className="p-16 flex flex-col gap-12">
@@ -60,7 +61,8 @@ const HomePage = () => {
       <MostSelling products={products}/>
       <TrendingProducts />
       <BestSelling />
-    </>
+      <ServicesToHelp />
+    </div>
   );
 };
 

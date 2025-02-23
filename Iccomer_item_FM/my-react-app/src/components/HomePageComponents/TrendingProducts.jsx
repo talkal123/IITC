@@ -20,7 +20,7 @@ const TrendingProducts = () => {
     <div className="grid grid-cols-2 w-full gap-5">
       {arr.map((item) => (
         <div className="rounded-lg overflow-hidden">
-          <div className="overflow-hidden rounded-lg">
+          <div className="overflow-hidden">
             <img src={item.img} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" alt="" />
           </div>
           <div className=" p-10 flex flex-col gap-5 bg-[#aaaaaa29]">
