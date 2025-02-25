@@ -15,7 +15,7 @@ const TrendingProducts = () => {
     },
   ];
   return (
-    <div className="p-16 flex flex-col gap-10">
+    <div className="p-5 flex flex-col gap-12 mt-28">
     <h1 className="text-3xl font-bold">Trending Products for you!</h1>
     <div className="grid grid-cols-2 w-full gap-5">
       {arr.map((item) => (

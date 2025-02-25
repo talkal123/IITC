@@ -3,7 +3,7 @@ import HomePhoto from '../../assets/Home.jpg'
 
 const HomePicture = () => {
   return (
-    <div className='w-full h-full overflow-hidden relative flex flex-col justify-center items-center '>
+    <div className='w-full h-full overflow-hidden relative flex flex-col justify-center items-center mt-28'>
       <img
         src={HomePhoto}
         alt=""

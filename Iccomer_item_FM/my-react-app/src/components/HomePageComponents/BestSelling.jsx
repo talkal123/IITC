@@ -45,7 +45,7 @@ const BestSelling = () => {
       ];
 
   return (
-    <div className='p-16 flex flex-col gap-10 '>
+    <div className='p-5 flex flex-col gap-12 mt-28 '>
         <h1 className="text-3xl font-bold">Best Selling Store</h1>
       <div className="grid grid-cols-2  w-full gap-2 md:flex">
             {arr.map((item) => (

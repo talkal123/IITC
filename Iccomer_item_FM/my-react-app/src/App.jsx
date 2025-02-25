@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="max-w-[1100px] mx-auto">
+    <div className="max-w-[1200px] mx-auto">
     <BrowserRouter>
     <Nav size={cart.length} />
       <Routes>

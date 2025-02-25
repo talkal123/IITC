@@ -35,8 +35,8 @@ const ShopOurTop = () => {
 ];
 
   return (
-    <div className='p-16 flex flex-col gap-12'>
-      <h1 className='font-bold text-2xl'>Shop Our Top</h1>
+    <div className='p-5 flex flex-col gap-12 mt-28'>
+      <h1 className='font-bold text-3xl'>Shop Our Top</h1>
       <div className='grid grid-cols-3 md:flex gap-5'>
         {arr.map((item, index) => (
           <div key={index} className='relative overflow-hidden rounded-lg group max-w-[250px] max-h-[300px]'>

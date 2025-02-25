@@ -36,13 +36,13 @@ const GetUpto = () => {
     },
   ];
   return (
-    <div className="p-16 flex flex-col gap-10">
+    <div className="p-5 flex flex-col gap-12 mt-28">
         <h1 className={`text-2xl font-bold`}>Get Up to 70% off</h1>
     <div className="gap-2 grid grid-cols-2 md:flex">
       {arr.map((item, index) => (
         <div className="">
           <div
-            className={`50% border rounded-lg p-8 flex flex-col`}
+            className={`50% border rounded-lg p-8 flex flex-col bg-[#f2e4d9]`}
             style={{ backgroundColor: item.bgColor }}
           >
             <h1

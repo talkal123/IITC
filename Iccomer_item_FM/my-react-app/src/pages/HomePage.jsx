@@ -17,6 +17,7 @@ import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const imageUrl = "https://images.unsplash.com/photo-1612415231093-b4398fd0c1fe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fHN0eWxlfGVufDB8fDB8fHww";
 
   useEffect(() => {
     getItems();
@@ -35,9 +36,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <HeaderPhoto />
+      <HeaderPhoto image={imageUrl} title={"shopping and department store."} paragraph={"Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance."}/>
       <ShopOurTop />
-      <div className="p-16 flex flex-col gap-12">
+      <div className="p-5 flex flex-col gap-12 mt-28">
         <h1 className="font-bold text-2xl">Todays Best Deals for you!</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {products.slice(0, 3).map((products) => (
@@ -47,7 +48,7 @@ const HomePage = () => {
       </div>
       <ChooseByBrand />
       <GetUpto />
-      <div className="p-16 flex flex-col gap-12">
+      <div className="p-5 flex flex-col gap-12 mt-28">
         <h1 className="font-bold text-2xl">Weekly Popular Products</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {products.slice(4, 7).map((products) => (

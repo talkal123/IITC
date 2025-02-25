@@ -6,7 +6,7 @@ import CardsRed from "../../assets/CardsRed.png"
 
 const Cards = () => {
   return (
-    <div className='w-full bg-[#ffe6cc] p-24 flex justify-between gap-5'>
+    <div className='w-full bg-[#ffe6cc] p-24 flex justify-between gap-5 mt-28'>
         <div className='flex flex-col gap-5'>
             <h1 className='text-5xl font-bold'>Get 5% Cash back</h1>
             <p className='text-lg'>on Shopcart.com</p>
