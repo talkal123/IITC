@@ -39,7 +39,7 @@ const HomePage = () => {
       <HeaderPhoto image={imageUrl} title={"shopping and department store."} paragraph={"Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance."}/>
       <ShopOurTop />
       <div className="p-5 flex flex-col gap-12 mt-28">
-        <h1 className="font-bold text-2xl">Todays Best Deals for you!</h1>
+        <h1 className="font-bold text-3xl">Todays Best Deals for you!</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {products.slice(0, 3).map((products) => (
             <CardItemHomePage products={products} />
@@ -49,7 +49,7 @@ const HomePage = () => {
       <ChooseByBrand />
       <GetUpto />
       <div className="p-5 flex flex-col gap-12 mt-28">
-        <h1 className="font-bold text-2xl">Weekly Popular Products</h1>
+        <h1 className="font-bold text-3xl">Weekly Popular Products</h1>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {products.slice(4, 7).map((products) => (
             <CardItemHomePage products={products} />

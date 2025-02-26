@@ -20,7 +20,7 @@ const ServicesToHelp = () => {
     ]
   return (
     <div className="p-5 flex flex-col gap-12 mt-28">
-        <h1 className="text-3xl font-bold">Trending Products for you!</h1>
+        <h1 className="font-bold text-3xl">Trending Products for you!</h1>
         <div className="grid grid-cols-2 w-full gap-5">
           {arr.map((item) => (
             <div className="rounded-lg overflow-hidden flex flex-col-reverse">

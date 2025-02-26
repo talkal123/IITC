@@ -24,7 +24,7 @@ const TrendingProducts = () => {
             <img src={item.img} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" alt="" />
           </div>
           <div className=" p-10 flex flex-col gap-5 bg-[#aaaaaa29]">
-            <h1 className="text-2xl font-bold">{item.title}</h1>
+            <h1 className="font-bold text-3xl">{item.title}</h1>
             <p className="font-semibold">{item.subtitle}</p>
             <Button className="text-lg hover:bg-green-900 max-w-[155px] rounded-full pr-12 pl-12 p-6">Learn More</Button>
           </div>

@@ -47,7 +47,7 @@ const ChooseByBrand = () => {
 
   return (
     <div className='p-5 flex flex-col gap-12 mt-28'>
-  <h1 className='font-bold text-2xl'>Choose By Brand</h1>
+  <h1 className='font-bold text-3xl'>Choose By Brand</h1>
   <div className=' grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5'>
     {arr.map((item, index) => (
       <div key={index} className='bg-gray-100 hover:border-black rounded-lg border p-3 flex  items-center justify-center '>
