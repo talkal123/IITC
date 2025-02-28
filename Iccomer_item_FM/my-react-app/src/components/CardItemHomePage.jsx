@@ -23,7 +23,7 @@ const CardItemHomePage = ({ products }) => {
         ) : (
           <div className="w-full h-24 bg-gray-200"></div>
         )}
-        <div className="p-5">
+        <div className="p-2 md:p-4">
           <h3 className="text-lg font-semibold mt-2 h-16 overflow-hidden text-ellipsis whitespace-nowrap">
             {products.title}
           </h3>
@@ -44,7 +44,7 @@ const CardItemHomePage = ({ products }) => {
             <Link to={`/product/${products.id}`}>
               <Button
                 variant="outline"
-                className="hover:bg-green-900 hover:text-white"
+                className=" md:hover:bg-green-900 hover:text-white "
               >
                 View Details
               </Button>

@@ -27,7 +27,7 @@ const ServicesToHelp = () => {
               <div className="overflow-hidden">
                 <img src={item.img} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" alt="" />
               </div>
-              <div className="h-1/2 p-10 flex flex-col gap-5 bg-[#aaaaaa29]">
+              <div className="md:h-1/2 p-10 flex flex-col gap-5 bg-[#aaaaaa29]">
                 <h1 className="text-2xl font-bold">{item.title}</h1>
                 <p className="font-semibold">{item.subtitle}</p>
               </div>
