@@ -9,7 +9,7 @@ const Cards = () => {
     <div className='w-full bg-[#ffe6cc] p-24 flex justify-between gap-5 mt-28'>
         <div className='flex flex-col gap-5'>
             <h1 className='text-5xl font-bold'>Get 5% Cash back</h1>
-            <p className='text-lg'>on Shopcart.com</p>
+            <p className='text-lg'>On Shopcart.com</p>
             <Button className="hover:bg-green-900 max-w-[135px] rounded-full pr-8 pl-8 p-6">Learn More</Button>
         </div>
         <div className='hidden md:flex flex-col relative '>

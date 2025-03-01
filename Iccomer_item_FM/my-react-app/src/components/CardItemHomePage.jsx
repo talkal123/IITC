@@ -11,7 +11,7 @@ const CardItemHomePage = ({ products }) => {
 
   return (
     <div>
-      <div className="border rounded-lg shadow-md min-h-[405px] flex flex-col group overflow-hidden">
+      <div className="border rounded-lg shadow-md min-h-[405px] min-w-[380px] flex flex-col group overflow-hidden">
         {products.images.length > 0 ? (
           <div className="relative w-full h-48 overflow-hidden">
             <img

@@ -50,7 +50,7 @@ const ChooseByBrand = () => {
   <h1 className='font-bold text-3xl'>Choose By Brand</h1>
   <div className=' grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5'>
     {arr.map((item, index) => (
-      <div key={index} className='bg-gray-100 hover:border-black rounded-lg border p-3 flex  items-center justify-center '>
+      <div key={index} className='bg-gray-100 hover:border-black rounded-lg border p-3 flex gap-5  items-center justify-center '>
         <div className='h-20 w-20 border rounded-full overflow-hidden mb-4'>
           <img src={item.img} className='w-full h-full object-cover' alt={item.title} />
         </div>

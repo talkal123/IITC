@@ -27,14 +27,14 @@ const TodaysBestDeals = () => {
 
   
   const arr = [
-    { title: "beauty", value: "beauty" },
-    { title: "fragrances", value: "fragrances" },
-    { title: "home-decoration", value: "home-decoration" },
-    { title: "laptops", value: "laptops" },
-    { title: "mobile-accessories", value: "mobile-accessories" },
-    { title: "smartphones", value: "smartphones" },
-    { title: "sunglasses", value: "sunglasses" },
-    { title: "tops", value: "tops" },
+    { title: "Beauty", value: "beauty" },
+    { title: "Fragrances", value: "fragrances" },
+    { title: "Home-decoration", value: "home-decoration" },
+    { title: "Laptops", value: "laptops" },
+    { title: "Mobile-accessories", value: "mobile-accessories" },
+    { title: "Smartphones", value: "smartphones" },
+    { title: "Sunglasses", value: "sunglasses" },
+    { title: "Tops", value: "tops" },
   ];
 
   function handleClick(index,value) {

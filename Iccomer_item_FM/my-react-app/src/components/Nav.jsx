@@ -32,7 +32,7 @@ const Nav = ({ size, setShow }) => {
                   <div className="p-10 border-b-2">
                     <h1 className="font-semibold">Popular Categories</h1>
                   </div>
-                    <div className="p-6 flex gap-10">
+                    <div className="flex flex-col p-6 gap-10 md:flex-row">
                       <div className="flex flex-col gap-5">
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
                           <div className="w-10 h-10">
