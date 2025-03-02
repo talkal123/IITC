@@ -9,6 +9,8 @@ import MenPage from "./pages/MenPage";
 import WomenPage from "./pages/WomenPage";
 import HomeDecoration from "./pages/HomeDecoration";
 import HeaderPhoto from "./components/HeaderPhoto";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   const [show,setShow] = useState(true);
@@ -76,6 +78,16 @@ function App() {
             path="/women"
             // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
             element={<WomenPage />}
+          />
+          <Route
+            path="/about"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<About />}
+          />
+          <Route
+            path="/contact"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<Contact />}
           />
       </Routes>
     </BrowserRouter>

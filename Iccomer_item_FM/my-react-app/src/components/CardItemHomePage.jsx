@@ -4,7 +4,6 @@ import Star from "../assets/Star.png";
 import { Button } from "./ui/button";
 
 const CardItemHomePage = ({ products }) => {
-  console.log(products);
   if (!products || !products.images || products.images.length === 0) {
     return <div>Loading...</div>;
   }

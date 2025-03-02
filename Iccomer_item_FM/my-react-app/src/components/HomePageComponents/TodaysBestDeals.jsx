@@ -59,7 +59,7 @@ const TodaysBestDeals = () => {
     </button>
   ))}
 </div>
-      <div className="grid grid-cols-3 gap-5 mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
         {products.slice(0,6).map((products) => (
           <CardItemHomePage products={products} /> 
         ))}
