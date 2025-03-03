@@ -64,18 +64,23 @@ const MenPage = () => {
           </select> 
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-        {products.filter(product => {
-          if (priceRange === "under-50") return product.price < 50;
-          if (priceRange === "50-100") return product.price >= 50 && product.price <= 100;
-          if (priceRange === "100-200") return product.price >= 100 && product.price <= 200;
-          if (priceRange === "all") return true;
-           
-        }).length === 0 ? (
-          <p>No results found</p> 
-        ) : products
-        .map((products) => (
-          <CardItemHomePage products={products} />
-        ))}
+      {products.filter(products => {
+        if (priceRange === "under-50") return products.price < 50;
+        if (priceRange === "50-100") return products.price >= 50 && products.price <= 100;
+        if (priceRange === "100-200") return products.price >= 100 && products.price <= 200;
+        if (priceRange === "all") return true; 
+        
+      }).length === 0 ? (
+        <p>No results found</p> 
+      ) : products.filter((product) => {
+        if (priceRange === "under-50") return product.price < 50;
+        if (priceRange === "50-100") return product.price >= 50 && product.price <= 100;
+        if (priceRange === "100-200") return product.price >= 100 && product.price <= 200;
+        if (priceRange === "all") return true; 
+      })
+      .map(products => (
+        <CardItemHomePage products={products}/>
+      ))}
       </div>
       
       </div>
