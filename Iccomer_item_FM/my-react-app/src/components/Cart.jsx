@@ -62,8 +62,8 @@ const Cart = ({ cart, setCart, handleChange }) => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
-  <div className="flex-1">
+    <div className="p-5 flex flex-col md:flex-row justify-between gap-4">
+  <div className="flex flex-col gap-5">
     <DeliveryInformation />
     <OrderSummery />
   </div> 

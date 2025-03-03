@@ -6,19 +6,20 @@ import CardItemHomePage from "../components/CardItemHomePage";
 import { Button } from "@/components/ui/button"
 import HeaderPhoto from "@/components/HeaderPhoto";
 import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
+import Footer from "@/components/Footer/Footer";
 
 const MenPage = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("mens-shoes")
   const [priceRange, setPriceRange] = useState("all");
-  const [brand, setBrand] = useState("all");
+  // const [brand, setBrand] = useState("all");
 
-  console.log(brand);
+  // console.log(brand);
   
 
   useEffect(() => {
     getItems();
-  }, [category,priceRange,brand]);
+  }, [category,priceRange]);
 
   const getItems = () => {
     axios
@@ -39,9 +40,9 @@ const MenPage = () => {
     setPriceRange(e.target.value); 
   };
 
-  const handleBrandChange = (e) => {
-    setBrand(e.target.value); 
-  };
+  // const handleBrandChange = (e) => {
+  //   setBrand(e.target.value); 
+  // };
 
   return (
     <>
@@ -50,9 +51,9 @@ const MenPage = () => {
         <div className="flex flex-col gap-12 p-5">
         <div className="mt-24 flex gap-2">
         <select id="select-option" value={category} onChange={handleCategoryChange} className="border p-2 rounded-full bg-gray-100">
-          <option value="mens-shirts">men-shirts</option>
-          <option value="mens-watches">men-watches</option>
-          <option value="mens-shoes">mens-shoes</option>
+          <option value="mens-shirts">Men-Shirts</option>
+          <option value="mens-watches">Men-Watches</option>
+          <option value="mens-shoes">Mens-shoes</option>
         </select>
 
          <select id="select-price-range" value={priceRange} onChange={handlePriceRangeChange} className="border p-2 rounded-full bg-gray-100">
@@ -60,13 +61,6 @@ const MenPage = () => {
             <option value="under-50">Under $50</option>
             <option value="50-100">$50 - $100</option>
             <option value="100-200">$100 - $200</option>
-          </select> 
-
-         <select id="select-brand-range" value={brand} onChange={handleBrandChange} className="border p-2 rounded-full bg-gray-100">
-            <option value="all">All Brands</option>
-            <option value="Nike">Nike</option>
-            <option value="Puma">Puma</option>
-            <option value="Off White">Off White</option>
           </select> 
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -87,6 +81,7 @@ const MenPage = () => {
       </div>
       <ServicesToHelp />
       </div>
+      <Footer />
     </>
   );
 };

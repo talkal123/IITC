@@ -15,6 +15,7 @@ import TrendingProducts from "@/components/HomePageComponents/TrendingProducts";
 import BestSelling from "@/components/HomePageComponents/BestSelling";
 import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import Footer from "@/components/Footer/Footer";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -70,7 +71,7 @@ const HomePage = () => {
       <TrendingProducts />
       <BestSelling />
       <ServicesToHelp />
-      
+      <Footer />
     </div>
   );
 };

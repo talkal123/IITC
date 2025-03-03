@@ -5,6 +5,7 @@ import axios from 'axios'
 import CardItemHomePage from '../components/CardItemHomePage'
 import HeaderPhoto from '@/components/HeaderPhoto'
 import ServicesToHelp from '@/components/HomePageComponents/ServicesToHelp'
+import Footer from '@/components/Footer/Footer'
 
 const HomeDecoration = () => {
   const [products, setProducts] = useState([])
@@ -35,7 +36,7 @@ const HomeDecoration = () => {
   };
 
   return (
-
+<>
     <div>
     <HeaderPhoto image="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG9tZXxlbnwwfHwwfHx8MA%3D%3D" title={"shopping and department store."} paragraph={"Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance."}/>
     <div className="flex flex-col gap-12 p-5">
@@ -75,6 +76,8 @@ const HomeDecoration = () => {
     </div>
     <ServicesToHelp />
     </div>
+    <Footer />
+    </>
   )
 }
 

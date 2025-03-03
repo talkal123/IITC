@@ -5,6 +5,7 @@ import axios from "axios";
 import CardItemHomePage from "../components/CardItemHomePage";
 import HeaderPhoto from "@/components/HeaderPhoto";
 import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
+import Footer from "@/components/Footer/Footer";
 
 const WomenPage = () => {
   const [products, setProducts] = useState([]);
@@ -77,6 +78,7 @@ const WomenPage = () => {
       </div>
       <ServicesToHelp />
     </div>
+    <Footer />
     </>
   );
 };
