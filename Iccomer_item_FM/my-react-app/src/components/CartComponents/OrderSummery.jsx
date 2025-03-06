@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../ui/button'
 
 const OrderSummery = () => {
+  
   const submitForm = (e) => {
     e.preventDefault()
 
@@ -9,6 +10,7 @@ const OrderSummery = () => {
     const payload = Object.fromEntries(formData)
 
     console.log(payload);
+    setCartDetailsOne(payload);
   }
 
   const handleClick = () => {
