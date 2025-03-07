@@ -9,7 +9,7 @@ const DeliveryInformation = () => {
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChangeDelivery = (e) => {
     const { name, value} = e.target;
     setFormValues({ ...formValues, [name]: value});
     console.log(formValues); 
@@ -82,7 +82,7 @@ const DeliveryInformation = () => {
 
   return (
     <div>
-    <form onSubmit={handleSubmit} className='border p-5 flex flex-col gap-5'>
+    <form onSubmit={handleSubmit} className='border p-5 flex flex-col gap-5 rounded-lg'>
       <div className='flex justify-between'>
         <h1 className='font-bold text-xl'>Delivery Information</h1>
         <div className='border p-2 pr-2 pl-2 rounded-full font-semibold bg-gray-300 text-sm'>Save information</div>
@@ -96,7 +96,7 @@ const DeliveryInformation = () => {
             ): (
               <h1 className='font-semibold '>First Name*</h1>
             )}
-            <input onChange={handleChange} type="text" value={formValues.firstName} name='firstName' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" value={formValues.firstName} name='firstName' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'> {formErrors.firstName}</p>
           </div>
           
@@ -106,14 +106,14 @@ const DeliveryInformation = () => {
             ): (
               <h1 className='font-semibold'>Last Name*</h1>
             )}
-            <input onChange={handleChange} type="text" value={formValues.lastName} name='lastName' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" value={formValues.lastName} name='lastName' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'>{formErrors.lastName}</p>
           </div>
         </div>
         
         <div className='flex flex-col gap-2 w-full'>
             <h1 className='font-semibold'>Address*</h1>
-            <input onChange={handleChange} type="text" name='address' placeholder='Type here...' className='p-3 border w-full rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" name='address' placeholder='Type here...' className='p-3 border w-full rounded-md' />
             <p className='text-red-500'>{formErrors.address}</p>
         </div>
       </div>
@@ -121,12 +121,12 @@ const DeliveryInformation = () => {
       <div className='flex gap-5'>
           <div className='gap-2 flex flex-col'>
             <h1 className='font-semibold'>City/ Town*</h1>
-            <input onChange={handleChange} type="text" name='city' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" name='city' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'>{formErrors.city}</p>
           </div>
           <div className='gap-2 flex flex-col'>
             <h1 className='font-semibold'>Zip Code*</h1>
-            <input onChange={handleChange} type="text" name='zipCode' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" name='zipCode' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'> {formErrors.zipCode}</p>
           </div>
         </div>
@@ -134,13 +134,13 @@ const DeliveryInformation = () => {
       <div className='flex gap-5'>
           <div className='gap-2 flex flex-col'>
             <h1 className='font-semibold'>Mobile*</h1>
-            <input onChange={handleChange} type="text" name='mobile' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" name='mobile' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'>{formErrors.mobile}</p>
           </div>
           
           <div className='gap-2 flex flex-col'>
             <h1 className='font-semibold'>Email*</h1>
-            <input onChange={handleChange} type="text" value={formValues.email} name='email' placeholder='Type here...' className='p-3 border rounded-md' />
+            <input onChange={handleChangeDelivery} type="text" value={formValues.email} name='email' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'>{formErrors.email}</p>
           </div>
           

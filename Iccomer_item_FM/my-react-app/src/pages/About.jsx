@@ -1,8 +1,10 @@
+import Footer from "@/components/Footer/Footer";
 import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col gap-2">
+    <div className="mt-5 min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl w-full text-center">
         <h1 className="text-4xl font-extrabold text-gray-800 sm:text-5xl">
           About Us
@@ -32,6 +34,8 @@ const About = () => {
           </p>
         </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

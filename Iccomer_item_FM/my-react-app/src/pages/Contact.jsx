@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import Footer from '@/components/Footer/Footer';
 
 const Contact = () => {
   
@@ -23,7 +24,9 @@ const Contact = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 justify-center items-center max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg'>
+    <div className='flex flex-col gap-2'>
+  <div>  
+  <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 justify-center items-center max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg'>
   <label className='text-lg font-semibold text-gray-700 mb-2'>Name</label>
   <input 
     type="text" 
@@ -54,6 +57,9 @@ const Contact = () => {
     className='w-full p-3 mt-4 bg-blue-500 text-white font-semibold rounded-lg cursor-pointer hover:bg-blue-600 transition duration-300'
   />
 </form>
+</div>  
+<Footer className="mt-2"/>
+</div>
 
   );
 };

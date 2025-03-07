@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-200 p-5'>
+    <footer className='border-t-2 p-5'>
       <div>
         <p>We proudly accept the following credit cards:</p>
         

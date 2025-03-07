@@ -1,43 +1,95 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Button } from '../ui/button'
+import { GoCheck } from "react-icons/go";
 
-const OrderSummery = () => {
+
+const OrderSummery = ({ formValues, formErrors, handleChangeOrder, handleSubmitOrder,isSubmit }) => {
+
+  // const  initialValues = {payment: "", email: "",CardHolder: "", CardNumber: "", expiry:"", CVC:"",};
+  // const [formValues, setFormValues] = useState(initialValues)
+  // const [formErrors, setFormErrors] = useState({})
+  // const [isSubmit, setIsSubmit] = useState(false)
+
+  // const handleChangeOrder = (e) => {
+  //   const { name, value,type, checked} = e.target;
+  //   setFormValues({ ...formValues, [name]: value});
+  //   console.log(formValues); 
+  // }
+
+
+  // const handleSubmitOrder = (e) => {
+  //   e.preventDefault()
+  //   setFormErrors(validate(formValues));
+  //   setIsSubmit(true)
+  // }
+
+  // useEffect(() => {
+  //   console.log(formErrors);
+  //   if(Object.keys(formErrors).length === 0 && isSubmit) {
+  //     console.log(formValues);
+      
+  //   }
+  // },[formErrors])
+
+  // const validate = (values) => {
+  //   const errors = {}
+  //   const regex= /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  //   if(!values.email) {
+  //     errors.email = "email is required! "
+  //   } 
+  //   if(!values.CardHolder) {
+  //     errors.CardHolder = "CardHolder is required! "
+  //   } else if (/[^a-zA-Z\s]/.test(values.CardHolder)) { 
+  //         errors.CardHolder = "CardHolder can only include letters and spaces!";
+  //       }
+  //   if(!values.CardNumber) {
+  //     errors.CardNumber = "CardNumber is required! "
+  //   }  else if (!/^\d+$/.test(values.CardNumber)) {
+  //         errors.CardNumber = "CardNumber can only contain numbers!";
+  //       } else if (values.CardNumber.length < 10) {
+  //         errors.CardNumber = "CardNumber must be at least 10 digits!";
+  //       } else if (values.CardNumber.length > 10) {
+  //         errors.CardNumber = "CardNumber can be at most 10 digits!";
+  //       }
+  //   if(!values.expiry) {
+  //       errors.expiry = "expiry is required! "
+  //   }
+  //   if(!values.CVC) {
+  //     errors.CVC = "CVC is required! "
+  //   }  else if (!/^\d+$/.test(values.CVC)) {
+  //         errors.CVC = "CVC can only contain numbers!";
+  //       } else if (values.CVC.length < 3) {
+  //         errors.CVC = "CVC must be at least 3 digits!";
+  //       } else if (values.CVC.length > 3) {
+  //         errors.CVC = "CVC can be at most 3 digits!";
+  //       }
+    
+
+  //   return errors;
+
+  // }
   
-  const submitForm = (e) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.target)
-    const payload = Object.fromEntries(formData)
-
-    console.log(payload);
-    setCartDetailsOne(payload);
-  }
-
-  const handleClick = () => {
-    alert('Your Information Is Saved')
-  }
-
 
   return (
     <div className='border p-5 flex flex-col gap-6 rounded-lg'>
       <h1 className='text-2xl font-semibold border-b-2 p-2'>Order Summery</h1>
-      <form onSubmit={submitForm} className='flex flex-col gap-5'>
+      <form onSubmit={handleSubmitOrder} className='flex flex-col gap-5'>
         <h1 className='text-xl font-semibold border-b-2 p-2'>Payment</h1>
         <div className='flex flex-col gap-5'>
           <div className='flex items-center gap-3'>
-            <input type="checkbox" name='Cash' value="Cash" className='w-4 h-4 rounded-fu' />
+            <input type="checkbox" checked name='cash' value="cash" className='w-4 h-4 rounded-fu' />
             <h1>Cash on Delivery</h1>
           </div>
           <div className='flex items-center gap-3'>
-            <input type="checkbox" name='Shopcart' value="Shopcart" className='w-4 h-4 rounded-fu' />
+            <input type="checkbox" checked name='shopcart' value="shopcart" className='w-4 h-4 rounded-fu' />
             <h1>Shopcart Card</h1>
           </div>
           <div className='flex items-center gap-3'>
-            <input type="checkbox" name='Paypal' value="Paypal" className='w-4 h-4 rounded-fu' />
+            <input type="checkbox" checked name='paypal' value="paypal" className='w-4 h-4 rounded-fu' />
             <h1>Paypal</h1>
           </div>
           <div className='flex items-center gap-3'>
-            <input type="checkbox" name='Credit' value="Credit" className='w-4 h-4 rounded-fu' />
+            <input type="checkbox" checked name='credit' value="credit" className='w-4 h-4 rounded-fu' />
             <h1>Credit or Debit card</h1>
           </div>
           <div className='flex items-center gap-3'>
@@ -48,27 +100,41 @@ const OrderSummery = () => {
         </div>
         <div className='flex flex-col gap-5'>
           <div className='gap-2 flex flex-col'>
-            <h1 className='font-semibold'>City/ Town*</h1>
-            <input type="text" name='City/Town' placeholder='Type here...' className='p-3 border rounded-md' />
+            <h1 className='font-semibold'>Email*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.email} name='email' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.email}</p>
           </div>
           <div className='gap-2 flex flex-col'>
-            <h1 className='font-semibold'>Zip Code*</h1>
-            <input type="text" name='ZipCode' placeholder='Type here...' className='p-3 border rounded-md' />
+            <h1 className='font-semibold'>Card Holder Name*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.CardHolder} name='CardHolder' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.CardHolder}</p>
+          </div>
+          <div className='gap-2 flex flex-col'>
+            <h1 className='font-semibold'>Card Number*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.CardNumber} name='CardNumber' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.CardNumber}</p>
           </div>
         </div>
         <div className='flex gap-5'>
           <div className='gap-2 flex flex-col'>
-            <h1 className='font-semibold'>Email*</h1>
-            <input type="text" name='Email' placeholder='Type here...' className='p-3 border rounded-md' />
+            <h1 className='font-semibold'>Expiry*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.expiry} name='expiry' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.expiry}</p>
           </div>
           <div className='gap-2 flex flex-col'>
-            <h1 className='font-semibold'>Card Number*</h1>
-            <input type="password" name='CardNumber' placeholder='Type here...' className='p-3 border rounded-md' />
+            <h1 className='font-semibold'>CVC*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.CVC} name='CVC' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.CVC}</p>
           </div>
         </div>
-        <div className='mt-2'>
-          <Button onClick={handleClick}>Saved Information</Button>
-        </div>
+        <div className='mt-2 flex items-center gap-5'>
+                  <Button>Saved Information</Button>
+                  {Object.keys(formErrors).length === 0 && isSubmit ? (
+                <div className='font-semibold text-green-500 flex gap-2 items-center'>Information Saved successfuly <GoCheck className='w-5 h-5'/></div>
+              ) :(
+                <p></p>
+              )}
+            </div>
       </form>
     </div>
   )
