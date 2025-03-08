@@ -11,10 +11,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
+import emailjs from '@emailjs/browser';
 import { Link } from "react-router-dom";
 import DeliveryInformation from "./CartComponents/DeliveryInformation";
 import OrderSummery from "./CartComponents/OrderSummery";
 import PurchaseSuccessful from "../assets/success.svg"
+import Footer from "./Footer/Footer";
 const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
   const [cartDetails, setCartDetails] = useState("");
@@ -102,6 +104,27 @@ const validateDelivery = (values) => {
   }
 
   return errors;
+};
+
+const sendEmail = () => {
+  const orderDetails = {
+    customerName: formValues.CardHolder,
+    customerEmail: formValues.email,
+    customerAddress: formValues.Address,
+    totalPrice: Math.round(price),
+    cartItems: cart.map((item) => item.title).join(", "),  // רשימת המוצרים
+  };
+
+  emailjs.send("service_ldx2o9d", "template_letlew7", orderDetails, "rW6lWI-oWrXpF-fYG")
+    .then(
+      (result) => {
+        console.log("Success:", result.text);
+        setIsPurchaseSuccessful(true);  // להציג הודעת הצלחה
+      },
+      (error) => {
+        console.log("Error:", error.text);
+      }
+    );
 };
 
 
@@ -198,6 +221,8 @@ const validateDelivery = (values) => {
       totalPrice: Math.round(productsPriceCart),
     });
 
+    sendEmail();
+
     setIsPurchaseSuccessful(true);
   };
 
@@ -208,6 +233,7 @@ const validateDelivery = (values) => {
   };
 
   return (
+    <div>
     <div className="p-5 flex flex-col md:grid grid-cols-2 justify-between gap-4">
       <div className="flex flex-col gap-5">
       <article className="border rounded-lg overflow-y-auto max-h-96">
@@ -304,8 +330,11 @@ const validateDelivery = (values) => {
 
         />
       </div>
-      
     </div>
+          <Footer />
+          </div>
+
+    
   );
 };
 

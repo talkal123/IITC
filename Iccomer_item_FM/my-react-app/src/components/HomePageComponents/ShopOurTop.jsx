@@ -5,6 +5,8 @@ import Sneakers from '../../assets/Sneakers.png';
 import Books from '../../assets/Books.png';
 import HandBag from '../../assets/HandBag.png';
 import Tech from '../../assets/Tech.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ShopOurTop = () => {
   const arr = [
@@ -35,7 +37,7 @@ const ShopOurTop = () => {
 ];
 
   return (
-    <div className='p-5 flex flex-col gap-12 mt-28'>
+    <div className='p-5 flex flex-col gap-12 mt-28' data-aos="fade-up">
       <h1 className='font-bold text-3xl'>Shop Our Top</h1>
       <div className='grid grid-cols-3 md:flex gap-5'>
         {arr.map((item, index) => (

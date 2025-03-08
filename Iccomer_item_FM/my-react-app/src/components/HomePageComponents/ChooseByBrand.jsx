@@ -1,5 +1,7 @@
 import React from 'react';
 import Furniture from '../../assets/Furniture.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ChooseByBrand = () => {
   const arr = [
@@ -46,7 +48,7 @@ const ChooseByBrand = () => {
 ];
 
   return (
-    <div className='p-5 flex flex-col gap-12 mt-28'>
+    <div className='p-5 flex flex-col gap-12 mt-28' data-aos="slide-right">
   <h1 className='font-bold text-3xl'>Choose By Brand</h1>
   <div className=' grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5'>
     {arr.map((item, index) => (

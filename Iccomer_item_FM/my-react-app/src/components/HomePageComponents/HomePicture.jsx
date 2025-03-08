@@ -1,9 +1,11 @@
 import React from 'react'
 import HomePhoto from '../../assets/Home.jpg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HomePicture = () => {
   return (
-    <div className='w-full h-full overflow-hidden relative flex flex-col justify-center items-center mt-28'>
+    <div className='w-full h-full overflow-hidden relative flex flex-col justify-center items-center mt-28' data-aos="zoom-in">
       <img
         src={HomePhoto}
         alt=""

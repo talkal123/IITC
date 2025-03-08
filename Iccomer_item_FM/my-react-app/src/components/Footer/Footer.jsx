@@ -3,8 +3,8 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className='border-t-2 p-5'>
-      <div>
-        <p>We proudly accept the following credit cards:</p>
+      <div className='flex flex-col gap-5'>
+        <p className='font-semibold'>We proudly accept the following credit cards:</p>
         
         <div className='flex items-center justify-around'>
           <div>

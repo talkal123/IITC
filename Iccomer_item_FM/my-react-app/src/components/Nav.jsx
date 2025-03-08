@@ -55,27 +55,28 @@ const Nav = ({ size, setShow }) => {
                         <div>
                         <Link to="/decoration">
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
-
                           <div className="w-10 h-10 flex">
                             <img src={Chair} alt="" className="w-full h-auto" />
                           </div>
-                          <div>
-                            
-                              <span className="text-gray-500">Home</span>
-                            
+                          <div>   
+                              <span className="text-gray-500">Home</span>              
                           </div>
                           </div>
                           </Link>
                         </div>
+                        <div className="flex flex-col gap-5">
+                          <div>
+                          <Link to="/women">
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
                           <div className="w-10 h-10">
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec605386e48004f02ee6a8_Rectangle%201436-4.png" alt="" className="w-full h-auto" />
                           </div>
                           <div>
-                            <Link to="/women">
                               <span className="text-gray-500">Women</span>
-                            </Link>
+                            </div>         
                           </div>
+                          </Link>
+                        </div>
                         </div>
                       </div>
                     </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const GetUpto = () => {
   const arr = [
@@ -36,7 +38,7 @@ const GetUpto = () => {
     },
   ];
   return (
-    <div className="p-5 flex flex-col gap-12 mt-28">
+    <div className="p-5 flex flex-col gap-12 mt-28" data-aos="zoom-out">
         <h1 className="font-bold text-3xl">Get Up to 70% off</h1>
     <div className="gap-2 grid grid-cols-2 md:flex">
       {arr.map((item, index) => (
