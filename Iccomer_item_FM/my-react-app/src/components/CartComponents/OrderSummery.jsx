@@ -1,6 +1,8 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import { Button } from '../ui/button'
 import { GoCheck } from "react-icons/go";
+import emailjs from '@emailjs/browser';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,6 +20,7 @@ import PurchaseSuccessful from "../../assets/success.svg"
 
 
 const OrderSummery = ({handleClick,cart,cartDetails,formValuesDelivery,price,isPurchaseSuccessful,continueBtn, formValues, formErrors, handleChangeOrder, handleSubmitOrder,isSubmit }) => {
+  
 
 
   return (

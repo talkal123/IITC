@@ -210,7 +210,7 @@ const validateDelivery = (values) => {
   return (
     <div className="p-5 flex flex-col md:grid grid-cols-2 justify-between gap-4">
       <div className="flex flex-col gap-5">
-      <article className="border rounded-lg  overflow-y-auto max-h-96">
+      <article className="border rounded-lg overflow-y-auto max-h-96">
         {cart.map((item) => (
           <div className="border-b p-4" key={item.id}>
             <h1 className="font-bold text-xl">Review Item And Shipping</h1>

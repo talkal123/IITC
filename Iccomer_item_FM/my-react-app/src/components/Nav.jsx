@@ -11,15 +11,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
+import ali from '../assets/ali.png'
 
 const Nav = ({ size, setShow }) => {
   return (
     <div className="p-8 border-b-2 flex justify-between">
       <div className="flex gap-10">
         <div>
-        <Link to="/"><h1 onClick={() => setShow(true)} className="font-bold text-3xl">
-            T&C Fashion
-          </h1>
+        <Link to="/"><div onClick={() => setShow(true)} className="font-bold text-3xl">
+            <img src={ali} alt="" className="w-26 h-14" />
+          </div>
         </Link>
         </div>
         <div className="">
@@ -34,28 +35,37 @@ const Nav = ({ size, setShow }) => {
                   </div>
                     <div className="flex flex-col p-6 gap-10 md:flex-row">
                       <div className="flex flex-col gap-5">
+                        <div>
+                        <Link to="/men">
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
                           <div className="w-10 h-10">
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052f0ed215b864af96e_Rectangle%201436-1.png" alt="" className="w-full h-auto" />
                           </div>
                           <div>
-                            <Link to="/men">
+                            
                               <span className="text-gray-500">Men</span>
-                            </Link>
+                            
                           </div>
                         </div>
+                        </Link>
+                      </div>
                       </div>
 
                       <div className="flex flex-col gap-5">
+                        <div>
+                        <Link to="/decoration">
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
-                          <div className="w-10 h-10">
+
+                          <div className="w-10 h-10 flex">
                             <img src={Chair} alt="" className="w-full h-auto" />
                           </div>
                           <div>
-                            <Link to="/decoration">
+                            
                               <span className="text-gray-500">Home</span>
-                            </Link>
+                            
                           </div>
+                          </div>
+                          </Link>
                         </div>
                         <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
                           <div className="w-10 h-10">
