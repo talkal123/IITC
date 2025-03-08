@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import DeliveryInformation from "./CartComponents/DeliveryInformation";
 import OrderSummery from "./CartComponents/OrderSummery";
-
+import PurchaseSuccessful from "../assets/success.svg"
 const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
   const [cartDetails, setCartDetails] = useState("");
@@ -22,6 +22,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
   const initialValues = {
     payment: "",
     email: "",
+    Address:"",
     CardHolder: "",
     CardNumber: "",
     expiry: "",
@@ -30,6 +31,79 @@ const Cart = ({ cart, setCart, handleChange }) => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const initialValuesDelivery = { firstName: "", lastName: "", email: "", address: "", city: "", zipCode: "", mobile: "" };
+const [formValuesDelivery, setFormValuesDelivery] = useState(initialValuesDelivery);
+const [formErrorsDelivery, setFormErrorsDelivery] = useState({});
+const [isSubmitDelivery, setIsSubmitDelivery] = useState(false);
+
+const handleChangeDelivery = (e) => {
+  const { name, value } = e.target;
+  setFormValuesDelivery({ ...formValuesDelivery, [name]: value });
+  console.log(formValuesDelivery);
+};
+
+const handleSubmitDelivery = (e) => {
+  e.preventDefault();
+  setFormErrorsDelivery(validateDelivery(formValuesDelivery));
+  setIsSubmitDelivery(true);
+};
+
+useEffect(() => {
+  console.log(formErrorsDelivery);
+  if (Object.keys(formErrorsDelivery).length === 0 && isSubmitDelivery) {
+    console.log(formValuesDelivery);
+  }
+}, [formErrorsDelivery]);
+
+const validateDelivery = (values) => {
+  const errors = {};
+  const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  
+  if (!values.firstName) {
+    errors.firstName = "FirstName is required! ";
+  }
+  if (!values.lastName) {
+    errors.lastName = "LastName is required! ";
+  }
+  if (!values.address) {
+    errors.address = "Address is required!";
+  } else if (/[^a-zA-Z\s]/.test(values.address)) { 
+    errors.address = "Address can only include letters and spaces!";
+  }
+  if (!values.city) {
+    errors.city = "City is required!";
+  } else if (/[^a-zA-Z\s]/.test(values.city)) { 
+    errors.city = "City can only include letters and spaces!";
+  }
+  if (!values.zipCode) {
+    errors.zipCode = "Zip Code is required!";
+  } else if (!/^\d+$/.test(values.zipCode)) {
+    errors.zipCode = "Zip Code can only contain numbers!";
+  } else if (values.zipCode.length !== 5) {
+    errors.zipCode = "Zip Code must be exactly 5 digits!";
+  } else if (values.zipCode.length < 5) {
+    errors.zipCode = "Zip Code is required minimum 5 Keys!";
+  } else if (values.zipCode.length > 5) {
+    errors.zipCode = "Zip Code is required maximum 5 Keys!";
+  }
+  if (!values.mobile) {
+    errors.mobile = "Mobile is required!";
+  } else if (!/^\d+$/.test(values.mobile)) {
+    errors.mobile = "Mobile can only contain numbers!";
+  } else if (values.mobile.length < 10) {
+    errors.mobile = "Mobile must be at least 10 digits!";
+  } else if (values.mobile.length > 10) {
+    errors.mobile = "Mobile can be at most 10 digits!";
+  }
+  if (!values.email) {
+    errors.email = "Email is required! ";
+  } else if (!regex.test(values.email)) {
+    errors.email = "This is not valid email format!";
+  }
+
+  return errors;
+};
+
 
   const handleChangeOrder = (e) => {
     const { name, value,} = e.target;
@@ -61,6 +135,11 @@ const Cart = ({ cart, setCart, handleChange }) => {
       errors.CardHolder = "CardHolder is required! ";
     } else if (/[^a-zA-Z\s]/.test(values.CardHolder)) {
       errors.CardHolder = "CardHolder can only include letters and spaces!";
+    }
+    if (!values.Address) {
+      errors.Address = "Address is required! ";
+    } else if (/[^a-zA-Z\s]/.test(values.Address)) {
+      errors.Address = "Address can only include letters and spaces!";
     }
     if (!values.CardNumber) {
       errors.CardNumber = "CardNumber is required! ";
@@ -129,29 +208,28 @@ const Cart = ({ cart, setCart, handleChange }) => {
   };
 
   return (
-    <div className="p-5 flex flex-col md:flex-row justify-between gap-4">
+    <div className="p-5 flex flex-col md:grid grid-cols-2 justify-between gap-4">
       <div className="flex flex-col gap-5">
-        <DeliveryInformation />
-        <OrderSummery
-          formValues={formValues}
-          formErrors={formErrors}
-          isSubmit={isSubmit}
-          handleChangeOrder={handleChangeOrder}
-          handleSubmitOrder={handleSubmitOrder}
-        />
-      </div>
-      <article className="border w-[300px] rounded-lg">
+      <article className="border rounded-lg  overflow-y-auto max-h-96">
         {cart.map((item) => (
           <div className="border-b p-4" key={item.id}>
-            <div className="flex items-center space-x-2">
-              <img
-                src={item.images[0]}
-                alt={item.title}
-                className="w-16 h-16 object-cover"
-              />
-              <p className="font-semibold">{item.title}</p>
+            <h1 className="font-bold text-xl">Review Item And Shipping</h1>
+            <div className="flex justify-between">
+            <div className="flex items-center space-x-2 ">
+              <div>
+                <img
+                  src={item.images[0]}
+                  alt={item.title}
+                  className="w-24 object-cover bg-gray-50"
+                />
+              </div>
+              <div>
+                <p className="font-semibold">{item.title}</p>
+                <p>{item.brand}</p>
+              </div>
             </div>
-            <div className="flex items-center justify-between my-2">
+            <div>
+            <div className="flex items-center justify-between my-2 gap-2 ">
               <button
                 onClick={() => handleChange(item, +1)}
                 className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 transition"
@@ -167,7 +245,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                 -
               </button>
             </div>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col justify-between items-center gap-2">
               <span className="text-lg font-bold text-green-700">
                 {item.price} $
               </span>
@@ -177,6 +255,8 @@ const Cart = ({ cart, setCart, handleChange }) => {
               >
                 Remove
               </button>
+              </div>
+            </div>
             </div>
           </div>
         ))}
@@ -193,70 +273,38 @@ const Cart = ({ cart, setCart, handleChange }) => {
               <div>Empty Cart</div>
             )}
           </div>
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              {cart.length > 0 ? (
-                <Button variant="outline" className="bg-green-900 text-white" onClick={handleClick}>
-                  <p>Pay {Math.round(price)} $</p>
-                </Button>
-              ) : (
-                <></>
-              )}
-            </AlertDialogTrigger>
-            <AlertDialogContent
-              className={`${
-                isPurchaseSuccessful
-                  ? "animate-slide-in-from-top bg-gray-100 w-full"
-                  : "bg-white"
-              } transition-all duration-500 ease-out overflow-y-auto`}
-            >
-              <AlertDialogHeader className="z-10 relative">
-                <AlertDialogTitle>
-                  Your order has been accepted
-                </AlertDialogTitle>
-                <AlertDialogDescription>
-                  {cart.length > 0 ? (
-                    <>
-                      <pre>
-                        <span className="font-bold">Item:</span>{" "}
-                        {cartDetails.titles}
-                      </pre>
-                      <pre>
-                        <span className="font-bold">Brand:</span>{" "}
-                        {cartDetails.brands}
-                      </pre>
-                      <pre>
-                        <span className="font-bold">Amount:</span>{" "}
-                        {cartDetails.amounts + ""}
-                      </pre>
-                      <pre>
-                        <span className="font-bold">Total Price:</span>{" "}
-                        {cartDetails.totalPrice + " $"}
-                      </pre>
-                      <div className="border-t-2 flex flex-col gap-2">
-                        <h1 className="font-semibold">Reception:</h1>
-                        <p>Name: {formValues.CardHolder}</p>
-                        <p>Email: {formValues.email}</p>
-
-                      </div>
-                    </>
-                  ) : (
-                    <p>No result</p>
-                  )}
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction>
-                  <Link to="/" onClick={continueBtn}>
-                    Continue Shopping
-                  </Link>
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+          
+          
         </div>
       </article>
+      <DeliveryInformation  
+          formValuesDelivery={formValuesDelivery} 
+          setFormValuesDelivery={setFormValuesDelivery}
+          formErrorsDelivery={formErrorsDelivery} 
+          handleChangeDelivery={handleChangeDelivery} 
+          handleSubmitDelivery={handleSubmitDelivery} 
+          isSubmitDelivery={isSubmitDelivery} 
+        />
+        </div>
+      <div className="flex flex-col gap-5">
+        <OrderSummery
+          formValues={formValues}
+          formErrors={formErrors}
+          isSubmit={isSubmit}
+          handleChangeOrder={handleChangeOrder}
+          handleSubmitOrder={handleSubmitOrder}
+          cart = {cart}
+          cartDetails ={cartDetails}
+          formValuesDelivery={formValuesDelivery}
+          price={price}
+          isPurchaseSuccessful={isPurchaseSuccessful}
+          continueBtn ={continueBtn }
+          handleClick ={handleClick}
+          
+
+        />
+      </div>
+      
     </div>
   );
 };

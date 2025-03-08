@@ -1,74 +1,24 @@
 import React, { useState,useEffect } from 'react'
 import { Button } from '../ui/button'
 import { GoCheck } from "react-icons/go";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../ui/alert-dialog";
+import { Link } from "react-router-dom";
+import PurchaseSuccessful from "../../assets/success.svg"
 
 
-const OrderSummery = ({ formValues, formErrors, handleChangeOrder, handleSubmitOrder,isSubmit }) => {
 
-  // const  initialValues = {payment: "", email: "",CardHolder: "", CardNumber: "", expiry:"", CVC:"",};
-  // const [formValues, setFormValues] = useState(initialValues)
-  // const [formErrors, setFormErrors] = useState({})
-  // const [isSubmit, setIsSubmit] = useState(false)
+const OrderSummery = ({handleClick,cart,cartDetails,formValuesDelivery,price,isPurchaseSuccessful,continueBtn, formValues, formErrors, handleChangeOrder, handleSubmitOrder,isSubmit }) => {
 
-  // const handleChangeOrder = (e) => {
-  //   const { name, value,type, checked} = e.target;
-  //   setFormValues({ ...formValues, [name]: value});
-  //   console.log(formValues); 
-  // }
-
-
-  // const handleSubmitOrder = (e) => {
-  //   e.preventDefault()
-  //   setFormErrors(validate(formValues));
-  //   setIsSubmit(true)
-  // }
-
-  // useEffect(() => {
-  //   console.log(formErrors);
-  //   if(Object.keys(formErrors).length === 0 && isSubmit) {
-  //     console.log(formValues);
-      
-  //   }
-  // },[formErrors])
-
-  // const validate = (values) => {
-  //   const errors = {}
-  //   const regex= /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  //   if(!values.email) {
-  //     errors.email = "email is required! "
-  //   } 
-  //   if(!values.CardHolder) {
-  //     errors.CardHolder = "CardHolder is required! "
-  //   } else if (/[^a-zA-Z\s]/.test(values.CardHolder)) { 
-  //         errors.CardHolder = "CardHolder can only include letters and spaces!";
-  //       }
-  //   if(!values.CardNumber) {
-  //     errors.CardNumber = "CardNumber is required! "
-  //   }  else if (!/^\d+$/.test(values.CardNumber)) {
-  //         errors.CardNumber = "CardNumber can only contain numbers!";
-  //       } else if (values.CardNumber.length < 10) {
-  //         errors.CardNumber = "CardNumber must be at least 10 digits!";
-  //       } else if (values.CardNumber.length > 10) {
-  //         errors.CardNumber = "CardNumber can be at most 10 digits!";
-  //       }
-  //   if(!values.expiry) {
-  //       errors.expiry = "expiry is required! "
-  //   }
-  //   if(!values.CVC) {
-  //     errors.CVC = "CVC is required! "
-  //   }  else if (!/^\d+$/.test(values.CVC)) {
-  //         errors.CVC = "CVC can only contain numbers!";
-  //       } else if (values.CVC.length < 3) {
-  //         errors.CVC = "CVC must be at least 3 digits!";
-  //       } else if (values.CVC.length > 3) {
-  //         errors.CVC = "CVC can be at most 3 digits!";
-  //       }
-    
-
-  //   return errors;
-
-  // }
-  
 
   return (
     <div className='border p-5 flex flex-col gap-6 rounded-lg'>
@@ -105,6 +55,11 @@ const OrderSummery = ({ formValues, formErrors, handleChangeOrder, handleSubmitO
             <p className='text-red-500'> {formErrors.email}</p>
           </div>
           <div className='gap-2 flex flex-col'>
+            <h1 className='font-semibold'>Address*</h1>
+            <input onChange={handleChangeOrder} type="text" value={formValues.Address} name='Address' placeholder='Type here...' className='p-3 border rounded-md' />
+            <p className='text-red-500'> {formErrors.Address}</p>
+          </div>
+          <div className='gap-2 flex flex-col'>
             <h1 className='font-semibold'>Card Holder Name*</h1>
             <input onChange={handleChangeOrder} type="text" value={formValues.CardHolder} name='CardHolder' placeholder='Type here...' className='p-3 border rounded-md' />
             <p className='text-red-500'> {formErrors.CardHolder}</p>
@@ -135,6 +90,84 @@ const OrderSummery = ({ formValues, formErrors, handleChangeOrder, handleSubmitO
                 <p></p>
               )}
             </div>
+            {Object.keys(formErrors).length === 0 && isSubmit ? (
+              <AlertDialog>
+            <AlertDialogTrigger asChild>
+              {cart.length > 0 ? (
+                <Button variant="outline" className="bg-green-900 text-white" onClick={handleClick}>
+                  <p>Pay {Math.round(price)} $</p>
+                </Button>
+              ) : (
+                <></>
+              )}
+            </AlertDialogTrigger>
+            <AlertDialogContent
+              className={`${
+                isPurchaseSuccessful
+                  ? "animate-slide-in-from-top bg-gray-50 w-full shadow-lg rounded-xl"
+                  : "bg-white shadow-md"
+              } transition-all duration-500 ease-out overflow-y-auto`}
+            >
+              <AlertDialogHeader className="z-10 relative px-8 py-6">
+                <AlertDialogTitle className="text-center text-2xl font-semibold text-teal-600">
+                  Your order has been accepted
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  {cart.length > 0 ? (
+                    <div className="flex flex-col md:flex-row gap-8 p-6">
+                      <div className="flex-1 space-y-4">
+                        <div className="text-sm text-gray-600">
+                          <pre>
+                            <span className="font-bold">Item:</span> {cartDetails.titles}
+                          </pre>
+                          <pre>
+                            <span className="font-bold">Brand:</span> {cartDetails.brands}
+                          </pre>
+                          <pre>
+                            <span className="font-bold">Amount:</span> {cartDetails.amounts + ""}
+                          </pre>
+                          <pre>
+                            <span className="font-bold">Total Price:</span> {cartDetails.totalPrice + " $"}
+                          </pre>
+                        </div>
+            
+                        <div className="border-t-2 mt-4 pt-4 text-gray-700">
+                          <h1 className="font-semibold text-lg text-teal-600">Reception:</h1>
+                          <p><span className="font-bold">Name:</span> {formValues.CardHolder}</p>
+                          <p><span className="font-bold">Email:</span> {formValues.email}</p>
+                          <p><span className="font-bold">Address:</span> {formValuesDelivery.address}</p>
+                        </div>
+                      </div>
+            
+                      
+                      <div className="max-w-[200px] mx-auto md:mx-0">
+                        <img
+                          className="w-full"
+                          src={PurchaseSuccessful}
+                          alt="Purchase Successful"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-center text-gray-500">No result</p>
+                  )}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction>
+                  <Link to="/" onClick={continueBtn}>
+                    Continue Shopping
+                  </Link>
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+            ) : (
+              <p></p>
+            )
+            
+          }
       </form>
     </div>
   )
