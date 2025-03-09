@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from "react";
 import CardItemHomePage from "../CardItemHomePage";
 import axios from "axios"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TodaysBestDeals = () => {
   const [products, setProducts] = useState([]);
@@ -43,7 +45,7 @@ const TodaysBestDeals = () => {
   }
 
   return (
-    <div className="p-5 flex flex-col gap-12 mt-28">
+    <div className="p-5 flex flex-col gap-12 mt-28" data-aos="zoom-out">
       <h1 className="font-bold text-3xl">Todays Best Deals for you!</h1>
       <div className="inline md:flex">
   {arr.map((item, index) => (

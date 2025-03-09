@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button } from '../ui/button';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const BestSelling = () => {
     const arr = [
@@ -45,7 +47,7 @@ const BestSelling = () => {
       ];
 
   return (
-    <div className='p-5 flex flex-col gap-12 mt-28 '>
+    <div className='p-5 flex flex-col gap-12 mt-28' data-aos="slide-left">
         <h1 className="font-bold text-3xl">Best Selling Store</h1>
       <div className="grid grid-cols-2  w-full gap-2 md:flex">
             {arr.map((item) => (

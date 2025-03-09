@@ -11,20 +11,21 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
-import ali from '../assets/ali.png'
+import TC from '../assets/T.png'
+import Search from "./SearchComponent/Search";
 
 const Nav = ({ size, setShow }) => {
   return (
     <div className="p-8 border-b-2 flex justify-between">
-      <div className="flex gap-10">
+      <div className="flex gap-5">
         <div>
         <Link to="/"><div onClick={() => setShow(true)} className="font-bold text-3xl">
-            <img src={ali} alt="" className="w-26 h-14" />
+            <img src={TC} alt="" className="w-28" />
           </div>
         </Link>
         </div>
         <div className="">
-          <ul className="flex gap-3">
+          <ul className="flex gap-3 mt-0 md:mt-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -84,7 +85,7 @@ const Nav = ({ size, setShow }) => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <div className="hidden md:flex gap-2 ">
+            <div className="hidden md:flex gap-4 ">
               <li className="text-gray-500 mt-2">
                 <Link to="/about">About</Link>
               </li>
@@ -96,6 +97,9 @@ const Nav = ({ size, setShow }) => {
         </div>
       </div>
       <div className="flex items-center gap-5">
+      <div>
+        <Search />
+      </div>
         <div className="">
           <Link to="/cart">
             <div className="flex flex-col-reverse items-center ">

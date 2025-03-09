@@ -29,8 +29,10 @@ const HomePage = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration: 2000,
+      once: false, 
+      delay: 100, 
+      offset: 250, 
     });
   }, []);
 

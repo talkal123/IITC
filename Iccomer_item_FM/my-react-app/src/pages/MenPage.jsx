@@ -7,10 +7,14 @@ import { Button } from "@/components/ui/button"
 import HeaderPhoto from "@/components/HeaderPhoto";
 import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
 import Footer from "@/components/Footer/Footer";
+import Slider from "@/components/Slider";
 
 const MenPage = () => {
   const [products, setProducts] = useState([]);
+  const [productsTwo, setProductsTwo] = useState([]);
+  const [productsThree, setProductsThree] = useState([]);
   const [category, setCategory] = useState("mens-shoes")
+  
   const [priceRange, setPriceRange] = useState("all");
   // const [brand, setBrand] = useState("all");
 
@@ -19,6 +23,8 @@ const MenPage = () => {
 
   useEffect(() => {
     getItems();
+    getItemsTwo();
+    getItemsThree();
   }, [category,priceRange]);
 
   const getItems = () => {
@@ -26,6 +32,27 @@ const MenPage = () => {
       .get(`https://dummyjson.com/products/category/${category}`)
       .then((res) => {
         setProducts(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getItemsTwo = () => {
+    axios
+      .get(`https://dummyjson.com/products/category/mens-shirts`)
+      .then((res) => {
+        setProductsTwo(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getItemsThree = () => {
+    axios
+      .get(`https://dummyjson.com/products/category/mens-watches`)
+      .then((res) => {
+        setProductsThree(res.data.products);
       })
       .catch((err) => {
         console.log(err);
@@ -84,8 +111,41 @@ const MenPage = () => {
       </div>
       
       </div>
-      <ServicesToHelp />
+
+      <div className="flex flex-col gap-12 p-5 mt-10">
+        <h1 className="text-xl font-bold">Men Shirts</h1>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {productsTwo.filter(products => {
+        if (priceRange === "under-50") return products.price < 50;
+        if (priceRange === "50-100") return products.price >= 50 && products.price <= 100;
+        if (priceRange === "100-200") return products.price >= 100 && products.price <= 200;
+        if (priceRange === "all") return true; 
+        
+      }).length === 0 ? (
+        <p>No results found</p> 
+      ) : productsTwo.filter((product) => {
+        if (priceRange === "under-50") return product.price < 50;
+        if (priceRange === "50-100") return product.price >= 50 && product.price <= 100;
+        if (priceRange === "100-200") return product.price >= 100 && product.price <= 200;
+        if (priceRange === "all") return true; 
+      })
+      .map(products => (
+        <CardItemHomePage products={products}/>
+      ))}
       </div>
+      </div>
+
+      <div className="flex flex-col gap-12 p-5 mt-10">
+        <h1 className="text-xl font-bold">Men Clock</h1>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {productsThree.map(products => (
+        <CardItemHomePage products={products}/>
+      ))}
+      </div>
+      </div>
+      </div>
+
+      <ServicesToHelp />
       <Footer />
     </>
   );
