@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-full p-5">
+      <div className="hidden md:grid grid-cols-4 w-full p-5">
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-semibold">Department</h3>
           <ul className="flex flex-col gap-1">

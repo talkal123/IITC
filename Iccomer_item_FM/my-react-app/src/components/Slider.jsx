@@ -9,8 +9,15 @@ import {
   } from "@/components/ui/carousel"
 
 const Slider = ({imageOne,imageTwo,imageThree}) => {
+
+  const prevClick = () => {
+    
+  }
+  const nextClick = () => {
+    
+  }
   return (
-        <Carousel className="w-full">
+        <Carousel className="flex">
           <CarouselContent>
             {Array.from({ length: 3 }).map((_, index) => (
               <CarouselItem key={index}>
@@ -44,8 +51,8 @@ const Slider = ({imageOne,imageTwo,imageThree}) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious id="CarouselPrevious" className="hidden md:flex" />
+          <CarouselNext id="CarouselNext" className="hidden md:flex"/>
         </Carousel>
       );
       
