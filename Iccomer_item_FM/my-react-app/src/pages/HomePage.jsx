@@ -14,14 +14,45 @@ import MostSelling from "@/components/HomePageComponents/MostSelling";
 import TrendingProducts from "@/components/HomePageComponents/TrendingProducts";
 import BestSelling from "@/components/HomePageComponents/BestSelling";
 import ServicesToHelp from "@/components/HomePageComponents/ServicesToHelp";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Footer from "@/components/Footer/Footer";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import SignInPage from "./SignInPage";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const imageUrl = "https://images.unsplash.com/photo-1612415231093-b4398fd0c1fe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fHN0eWxlfGVufDB8fDB8fHww";
+
+
+  const [isDisplay, setIsDisplay] = useState(true);
+  const [val, setVal] = useState("");
+  const [values,setValues] = useState({name:"",password:""})
+  const [users,setUsers] = useState([
+    {
+      email:"tal153@gmail.com",
+      password:"tal1212#"
+    },
+    {
+      email:"shany153@gmail.com",
+      password:"shany153#"
+    },
+])
+
+  const inputValues = (e) => {
+    setVal(e.target.value)
+    
+  }
+
+  useEffect(() => {
+    console.log(val);
+  }, [val]);
+
+
+  const SignInBtn = () => {
+    
+    // setIsDisplay(false)
+  }
 
   useEffect(() => {
     getItems();
@@ -30,9 +61,9 @@ const HomePage = () => {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-      once: false, 
-      delay: 100, 
-      offset: 250, 
+      once: false,
+      delay: 100,
+      offset: 250,
     });
   }, []);
 
@@ -49,40 +80,52 @@ const HomePage = () => {
 
   return (
     <div>
-      <HeaderPhoto image={imageUrl} title={"shopping and department store."} paragraph={"Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance."}/>
-      <ShopOurTop />
-      <div className="p-2 flex flex-col gap-12 mt-28" data-aos="slide-left">
-        <h1 className="font-bold text-3xl">Todays Best Deals for you!</h1>
-        <ScrollArea className="w-full pb-6">
-        <div className="grid grid-cols-1 gap-5 md:flex">
-          {products.slice(0, 8).map((products) => (
-            <CardItemHomePage products={products} />
-          ))}
-        </div>
-        <ScrollBar orientation="horizontal"/>
-        </ScrollArea>
-      </div>
-      <ChooseByBrand />
-      <GetUpto />
-      <div className="p-2 flex flex-col gap-12 mt-28" data-aos="zoom-out">
-        <h1 className="font-bold text-3xl">Weekly Popular Products</h1>
-        <ScrollArea className="w-full pb-6">
-        <div className="grid grid-cols-1 gap-5 md:flex">
-          {products.slice(9, 17).map((products) => (
-            <CardItemHomePage products={products} />
-          ))}
-        </div>
-        <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-      </div>
-      <HomePicture />
-      <TodaysBestDeals />
-      <Cards />
-      <MostSelling products={products}/>
-      <TrendingProducts />
-      <BestSelling />
-      <ServicesToHelp />
-      <Footer />
+      {isDisplay === true ? (
+        <SignInPage SignInBtn={SignInBtn} inputValues={inputValues} val={val} values={values} users/>
+      ) : (
+        <>
+          <HeaderPhoto
+            image={imageUrl}
+            title={"shopping and department store."}
+            paragraph={
+              "Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance."
+            }
+          />
+          <ShopOurTop />
+          <div className="p-2 flex flex-col gap-12 mt-28" data-aos="slide-left">
+            <h1 className="font-bold text-3xl">Todays Best Deals for you!</h1>
+            <ScrollArea className="w-full pb-6">
+              <div className="grid grid-cols-1 gap-5 md:flex">
+                {products.slice(0, 8).map((products) => (
+                  <CardItemHomePage products={products} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+          <ChooseByBrand />
+          <GetUpto />
+          <div className="p-2 flex flex-col gap-12 mt-28" data-aos="zoom-out">
+            <h1 className="font-bold text-3xl">Weekly Popular Products</h1>
+            <ScrollArea className="w-full pb-6">
+              <div className="grid grid-cols-1 gap-5 md:flex">
+                {products.slice(9, 17).map((products) => (
+                  <CardItemHomePage products={products} />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+          <HomePicture />
+          <TodaysBestDeals />
+          <Cards />
+          <MostSelling products={products} />
+          <TrendingProducts />
+          <BestSelling />
+          <ServicesToHelp />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };

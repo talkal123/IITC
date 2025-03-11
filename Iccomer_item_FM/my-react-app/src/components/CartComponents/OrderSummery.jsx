@@ -137,8 +137,8 @@ const OrderSummery = ({handleClick,cart,cartDetails,formValuesDelivery,price,isP
                         <div className="border-t-2 mt-4 pt-4 text-gray-700">
                           <h1 className="font-semibold text-lg text-teal-600">Reception:</h1>
                           <p><span className="font-bold">Name:</span> {formValues.CardHolder}</p>
-                          <p><span className="font-bold">Email:</span> {formValues.email}</p>
-                          <p><span className="font-bold">Address:</span> {formValuesDelivery.address}</p>
+                          <p className='inline'><span className="font-bold">Email:</span> {formValues.email}</p>
+                          <p><span className="font-bold">Address:</span> {formValues.Address}</p>
                         </div>
                       </div>
             

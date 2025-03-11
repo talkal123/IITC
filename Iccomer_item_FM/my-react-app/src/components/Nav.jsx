@@ -115,10 +115,12 @@ const Nav = ({ size, setShow }) => {
           </Link>
         </div>
         <div>
+          <Link to ="/account">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
+          </Link>
         </div>
       </div>
     </div>

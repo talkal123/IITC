@@ -11,6 +11,7 @@ import HomeDecoration from "./pages/HomeDecoration";
 import HeaderPhoto from "./components/HeaderPhoto";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   const [show,setShow] = useState(true);
@@ -88,6 +89,11 @@ function App() {
             path="/contact"
             // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
             element={<Contact />}
+          />
+          <Route
+            path="/account"
+            // element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
+            element={<AccountPage />}
           />
       </Routes>
     </BrowserRouter>

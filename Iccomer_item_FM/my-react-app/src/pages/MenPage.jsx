@@ -136,7 +136,7 @@ const MenPage = () => {
       </div>
 
       <div className="flex flex-col gap-12 p-5 mt-10">
-        <h1 className="text-xl font-bold">Men Clock</h1>
+        <h1 className="text-xl font-bold">Men Watches</h1>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
       {productsThree.map(products => (
         <CardItemHomePage products={products}/>

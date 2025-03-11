@@ -108,6 +108,8 @@ const validateDelivery = (values) => {
 
 const sendEmail = () => {
   const orderDetails = {
+    to_email: formValues.email,  // כתובת המייל של הנמען
+    from_name: formValues.CardHolder,  // שם השולח
     customerName: formValues.CardHolder,
     customerEmail: formValues.email,
     customerAddress: formValues.Address,
@@ -119,7 +121,7 @@ const sendEmail = () => {
     .then(
       (result) => {
         console.log("Success:", result.text);
-        setIsPurchaseSuccessful(true);  // להציג הודעת הצלחה
+        setIsPurchaseSuccessful(true);  
       },
       (error) => {
         console.log("Error:", error.text);
@@ -326,8 +328,6 @@ const sendEmail = () => {
           isPurchaseSuccessful={isPurchaseSuccessful}
           continueBtn ={continueBtn }
           handleClick ={handleClick}
-          
-
         />
       </div>
     </div>

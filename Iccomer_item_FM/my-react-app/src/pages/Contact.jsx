@@ -16,7 +16,7 @@ const Contact = () => {
     const email = "talkal153@gmail.com"
 
     emailjs
-      .sendForm('service_voztnp8', 'template_gyzwxty', form.current, {
+      .sendForm('service_0t5i64q', 'template_8chc57j', form.current, {
         publicKey: 'rW6lWI-oWrXpF-fYG',from_email: email,
       })
       .then(
