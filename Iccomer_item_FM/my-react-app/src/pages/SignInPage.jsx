@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 
-const SignInPage = ({ SignInBtn,inputValues,val,values,users}) => {
+const SignInPage = ({isDisplayFunc, SignInBtn,inputValues,val,values,users}) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
@@ -12,7 +12,7 @@ const SignInPage = ({ SignInBtn,inputValues,val,values,users}) => {
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
             <input
               onChange={inputValues}
-              value={val}
+              value={values.email}
               type="email"
               id="email"
               placeholder="Enter your email"
@@ -24,7 +24,7 @@ const SignInPage = ({ SignInBtn,inputValues,val,values,users}) => {
             <label htmlFor="password" className="block text-gray-700 font-medium mb-2">Password</label>
             <input
               onChange={inputValues}
-              value={val}
+              value={values.password}
               type="password"
               id="password"
               placeholder="Enter your password"
@@ -37,7 +37,9 @@ const SignInPage = ({ SignInBtn,inputValues,val,values,users}) => {
               <input type="checkbox" id="remember" className="mr-2" />
               <label htmlFor="remember" className="text-gray-700">Remember me</label>
             </div>
-            <a href="#" className="text-blue-500 hover:underline">Forgot Password?</a>
+            <div>
+              <p onClick={isDisplayFunc} className='cursor-pointer underline'>Log without account</p>
+            </div>
           </div>
 
           <Button 

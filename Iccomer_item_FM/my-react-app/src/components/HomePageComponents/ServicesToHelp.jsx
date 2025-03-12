@@ -22,9 +22,9 @@ const ServicesToHelp = () => {
   return (
     <div className="p-5 flex flex-col gap-12 mt-28" >
         <h1 className="font-bold text-3xl">Trending Products for you!</h1>
-        <div className="grid grid-cols-3 w-full gap-5">
+        <div className="md:grid grid-cols-3 w-full gap-5">
           {arr.map((item) => (
-            <div className="rounded-lg overflow-hidden flex flex-col-reverse">
+            <div className="rounded-lg overflow-hidden flex flex-col-reverse mb-5">
               <div className="overflow-hidden">
                 <img src={item.img} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" alt="" />
               </div>

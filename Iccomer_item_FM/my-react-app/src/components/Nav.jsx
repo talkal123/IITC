@@ -11,73 +11,91 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
-import TC from '../assets/T.png'
+import TC from "../assets/T.png";
 import Search from "./SearchComponent/Search";
+import { IoIosHome } from "react-icons/io";
 
 const Nav = ({ size, setShow }) => {
   return (
     <div className="p-8 border-b-2 flex justify-between">
-      <div className="flex gap-5">
+      <div className="flex gap-0 md:gap-5">
         <div>
-        <Link to="/"><div onClick={() => setShow(true)} className="font-bold text-3xl">
-            <img src={TC} alt="" className="w-28" />
-          </div>
-        </Link>
+          <Link to="/">
+            <div onClick={() => setShow(true)} className="font-bold text-3xl">
+              <div className="flex items-center">
+                <div className="block md:hidden">
+                  <IoIosHome className="w-6 mt-1"/>
+                </div>
+
+                <img src={TC} alt="" className="w-32 hidden md:block" />
+              </div>{" "}
+            </div>
+          </Link>
         </div>
         <div className="">
-          <ul className="flex gap-3 mt-0 md:mt-8">
+          <ul className="flex gap-3 mt-0 sm:mt-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="mr-1">Categories</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                  <div className="p-10 border-b-2">
-                    <h1 className="font-semibold">Popular Categories</h1>
-                  </div>
+                    <div className="p-10 border-b-2">
+                      <h1 className="font-semibold">Popular Categories</h1>
+                    </div>
                     <div className="flex flex-col p-6 gap-10 md:flex-row">
                       <div className="flex flex-col gap-5">
                         <div>
-                        <Link to="/men">
-                        <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
-                          <div className="w-10 h-10">
-                            <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052f0ed215b864af96e_Rectangle%201436-1.png" alt="" className="w-full h-auto" />
-                          </div>
-                          <div>
-                            
-                              <span className="text-gray-500">Men</span>
-                            
-                          </div>
+                          <Link to="/men">
+                            <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
+                              <div className="w-10 h-10">
+                                <img
+                                  src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052f0ed215b864af96e_Rectangle%201436-1.png"
+                                  alt=""
+                                  className="w-full h-auto"
+                                />
+                              </div>
+                              <div>
+                                <span className="text-gray-500">Men</span>
+                              </div>
+                            </div>
+                          </Link>
                         </div>
-                        </Link>
-                      </div>
                       </div>
 
                       <div className="flex flex-col gap-5">
                         <div>
-                        <Link to="/decoration">
-                        <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
-                          <div className="w-10 h-10 flex">
-                            <img src={Chair} alt="" className="w-full h-auto" />
-                          </div>
-                          <div>   
-                              <span className="text-gray-500">Home</span>              
-                          </div>
-                          </div>
+                          <Link to="/decoration">
+                            <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
+                              <div className="w-10 h-10 flex">
+                                <img
+                                  src={Chair}
+                                  alt=""
+                                  className="w-full h-auto"
+                                />
+                              </div>
+                              <div>
+                                <span className="text-gray-500">Home</span>
+                              </div>
+                            </div>
                           </Link>
                         </div>
                         <div className="flex flex-col gap-5">
                           <div>
-                          <Link to="/women">
-                        <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
-                          <div className="w-10 h-10">
-                            <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec605386e48004f02ee6a8_Rectangle%201436-4.png" alt="" className="w-full h-auto" />
+                            <Link to="/women">
+                              <div className="flex items-center gap-3 p-5 hover:bg-gray-200">
+                                <div className="w-10 h-10">
+                                  <img
+                                    src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec605386e48004f02ee6a8_Rectangle%201436-4.png"
+                                    alt=""
+                                    className="w-full h-auto"
+                                  />
+                                </div>
+                                <div>
+                                  <span className="text-gray-500">Women</span>
+                                </div>
+                              </div>
+                            </Link>
                           </div>
-                          <div>
-                              <span className="text-gray-500">Women</span>
-                            </div>         
-                          </div>
-                          </Link>
-                        </div>
                         </div>
                       </div>
                     </div>
@@ -96,10 +114,10 @@ const Nav = ({ size, setShow }) => {
           </ul>
         </div>
       </div>
-      <div className="flex items-center gap-5">
-      <div>
-        <Search />
-      </div>
+      <div className="flex items-center gap-2 md:gap-5">
+        <div>
+          <Search />
+        </div>
         <div className="">
           <Link to="/cart">
             <div className="flex flex-col-reverse items-center ">
@@ -115,11 +133,11 @@ const Nav = ({ size, setShow }) => {
           </Link>
         </div>
         <div>
-          <Link to ="/account">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <Link to="/account">
+            <Avatar className="w-7 h-7">
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </Link>
         </div>
       </div>

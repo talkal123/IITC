@@ -26,8 +26,7 @@ const HomePage = () => {
 
 
   const [isDisplay, setIsDisplay] = useState(true);
-  const [val, setVal] = useState("");
-  const [values,setValues] = useState({name:"",password:""})
+  const [values,setValues] = useState({ email: "", password: ""})
   const [users,setUsers] = useState([
     {
       email:"tal153@gmail.com",
@@ -37,21 +36,44 @@ const HomePage = () => {
       email:"shany153@gmail.com",
       password:"shany153#"
     },
-])
+    {
+      email:"lia2003@walla.com",
+      password:"lia555#"
+    },
+    {
+      email:"noale@gmail.com",
+      password:"noale222#"
+    },
+  ])
 
   const inputValues = (e) => {
-    setVal(e.target.value)
+    const { id, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [id]: value,
+    }))
     
   }
 
   useEffect(() => {
-    console.log(val);
-  }, [val]);
+    console.log(values);
+  }, [values]);
 
 
   const SignInBtn = () => {
+
+    const foundUser = users.find(
+      (user) => user.email === values.email && user.password === values.password
+    );
+  
+    if (foundUser) {
+      alert("It's Okay");
+      setIsDisplay(false)
+    } else {
+      alert("Not Current, Try Again");
+    }
     
-    // setIsDisplay(false)
+    
   }
 
   useEffect(() => {
@@ -78,10 +100,14 @@ const HomePage = () => {
       });
   };
 
+  const isDisplayFunc = () => {
+    setIsDisplay(!isDisplay);
+  }
+
   return (
     <div>
       {isDisplay === true ? (
-        <SignInPage SignInBtn={SignInBtn} inputValues={inputValues} val={val} values={values} users/>
+        <SignInPage isDisplayFunc={isDisplayFunc} isDisplay={isDisplay} SignInBtn={SignInBtn} inputValues={inputValues} values={values} users/>
       ) : (
         <>
           <HeaderPhoto
