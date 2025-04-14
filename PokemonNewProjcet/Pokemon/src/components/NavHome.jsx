@@ -1,35 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import axios from "axios";
-import { Link } from "react-router";
+import { data, Link } from "react-router";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import HomePage from "@/pages/HomePage";
 import { CiHeart } from "react-icons/ci";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import CardLiked from "./CardLiked";
-
-const Nav = ({ likedPokemons, dataAll }) => {
-   const [search, setSearch] = useState("");
-   const [isDisplay, setIsDisplay] = useState(false);
 
 
-  
-    const handleChange = (e) => {
-      setIsDisplay((prevState) => !prevState);
-  
-      setSearch(e.target.value);
-    };
-  
+const NavHome = ({ dataAll }) => {
+    const [search, setSearch] = useState("");
+    const [isDisplay, setIsDisplay] = useState(false);
+
+    console.log(dataAll);
+    
+
+  const handleChange = (e) => {
+    setIsDisplay((prevState) => !prevState);
+
+    setSearch(e.target.value);
+  };
 
   return (
     <div className="grid grid-cols-1 gap-5 md:flex justify-between p-5">
@@ -38,25 +27,7 @@ const Nav = ({ likedPokemons, dataAll }) => {
           <Link to={"/"}><MdOutlineKeyboardBackspace className="w-7 h-7 cursor-pointer"/></Link>
         </div>
         <div className="font-bold text-3xl">Pokedex</div>
-        <AlertDialog className=" ">
-            <AlertDialogTrigger asChild>
-              <CiHeart className="w-7 h-7 cursor-pointer" />
-            </AlertDialogTrigger>
-            <AlertDialogContent >
-              <AlertDialogHeader className="overflow-auto ">
-                <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
-                <AlertDialogDescription>
-                  <div className="flex gap-5">
-                    <CardLiked likedPokemons={likedPokemons}/>
-                  </div>
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction>Continue</AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+        
       </div>
       <div className="relative">
         <Input
@@ -108,18 +79,4 @@ const Nav = ({ likedPokemons, dataAll }) => {
   );
 };
 
-export default Nav;
-
-{
-  /* <div className='flex justify-between flex-row-reverse'>
-<div>
-  <Input 
-  onChange={handleChange}
-  value={search}
-  placeholder="Search pokemon..."/>
-</div>
-<div className="font-bold text-3xl">
-  <h1>Pokedex</h1>
-</div>
-</div> */
-}
+export default NavHome;
