@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-import { Card, CardTitle } from './ui/card'
-import { Badge } from './ui/badge';
+import { Card } from './ui/card'
 import pokeball from "../assets/pokeball.png"
 import typeColors from '@/helpers/pokemonTypes';
 
 
 
 const CardHomePage = ({ data }) => {
-  const backgroundColor = typeColors[data.type.toLowerCase()] || '#fff'; // צבען רקע לפי סוג הפוקימון
+  const backgroundColor = typeColors[data.type.toLowerCase()] || '#fff'; 
 
 
   

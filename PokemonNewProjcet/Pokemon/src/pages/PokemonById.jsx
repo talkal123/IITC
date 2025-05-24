@@ -77,7 +77,6 @@ const PokemonById = () => {
 
       const response = await axios.get(url);
 
-      // שליחה של בקשות לכל הפוקימונים בצורה אסינכרונית
       const pokemonDetails = await Promise.all(
         response.data.results.map(pokemon =>
           axios.get(pokemon.url).then(res => ({
@@ -89,22 +88,22 @@ const PokemonById = () => {
         )
       );
 
-      setDataAll(pokemonDetails); // עדכון ה-state עם המידע המלא
+      setDataAll(pokemonDetails); 
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
-    fetchDataTwo("https://pokeapi.co/api/v2/pokemon?limit=150"); // קריאה ראשונית כשהקומפוננטה טוענת
-  }, []); // הפעלת הפונקציה רק בהתחלה
+    fetchDataTwo("https://pokeapi.co/api/v2/pokemon?limit=150");
+  }, []); 
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (!pokemon) {
-    return <div>Loading...</div>; // מוודא שלא ניגשים לנתונים של null
+    return <div>Loading...</div>; 
   }
   const backgroundColor = typeColors[pokemon.types[0].type.name.toLowerCase()] || "#fff";
 

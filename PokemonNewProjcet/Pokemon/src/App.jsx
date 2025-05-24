@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
 import HomePage from './pages/HomePage'
 import PokemonById from './pages/PokemonById'
-import LikedPokemons from './pages/LikedPokemons'
 
 function App() {
 

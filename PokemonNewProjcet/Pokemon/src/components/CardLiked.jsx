@@ -1,25 +1,21 @@
-import React, { useState } from 'react'
-import { Card, CardTitle } from './ui/card'
-import { Badge } from './ui/badge';
+import { Card } from './ui/card'
 import pokeball from "../assets/pokeball.png"
 import typeColors from '@/helpers/pokemonTypes';
 
 
 const CardLiked = ({ likedPokemons }) => {
-  // מוודאים שיש מערך של פוקימונים לפני שמבצעים פעולה
   if (!likedPokemons || likedPokemons.length === 0) {
-    return <div>No Pokemons...</div>; // מוודא שלא ניגשים לנתונים של null או מערך ריק
+    return <div>No Pokemons...</div>; 
   }
 
   return (
     <>
       {likedPokemons.map((pokemon) => {
-        // לחשב את הצבע רקע עבור כל פוקימון לפי סוגו
         const backgroundColor = typeColors[pokemon.type.toLowerCase()] || "#fff";
 
         return (
           <Card
-            key={pokemon.id} // הוסף מפתח לכל כרטיס
+            key={pokemon.id} 
             className="min-h-[400px] min-w-[300px] p-5 shadow-2xl"
             style={{
               backgroundColor: backgroundColor,
@@ -42,7 +38,6 @@ const CardLiked = ({ likedPokemons }) => {
                 </div>
               </div>
               <div>
-                {/* תמונה של הפוקימון */}
                 <img src={pokemon.image} className="" alt={pokemon.name} />
               </div>
             </div>

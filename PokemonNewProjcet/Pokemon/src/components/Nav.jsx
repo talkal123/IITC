@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Input } from "./ui/input";
-import axios from "axios";
 import { Link } from "react-router";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import HomePage from "@/pages/HomePage";
 import { CiHeart } from "react-icons/ci";
 import {
   AlertDialog,
@@ -110,16 +108,4 @@ const Nav = ({ likedPokemons, dataAll }) => {
 
 export default Nav;
 
-{
-  /* <div className='flex justify-between flex-row-reverse'>
-<div>
-  <Input 
-  onChange={handleChange}
-  value={search}
-  placeholder="Search pokemon..."/>
-</div>
-<div className="font-bold text-3xl">
-  <h1>Pokedex</h1>
-</div>
-</div> */
-}
+

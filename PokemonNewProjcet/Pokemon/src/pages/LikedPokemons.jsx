@@ -1,4 +1,3 @@
-import CardHomePage from '@/components/CardHomePage'
 import CardLiked from '@/components/CardLiked'
 import Nav from '@/components/Nav'
 import React from 'react'

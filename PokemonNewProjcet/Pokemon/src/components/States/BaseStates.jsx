@@ -2,10 +2,7 @@ import React from 'react';
 import { Progress } from '../ui/progress';
 
 const BaseStates = ({ pokemon }) => {
-  // let totalStats = 0;
-  // for (let i = 0; i < pokemon.stats.length; i++) {
-  //   totalStats += pokemon.stats[i].base_stat;
-  // }
+  
 
   const totalStats = pokemon.stats.reduce((total, stats) => total + stats.base_stat, 0);
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Moves = ({ pokemonSpecies,pokemon }) => {
+const Moves = ({ pokemon }) => {
   console.log(pokemon);
   
 
