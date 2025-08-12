@@ -1,10 +1,10 @@
-import Todo from './components/todo'
+import AddUsers from './components/AddUsers'
 import './App.css'
 
 function App() {
 
   return (
-    <Todo/>
+    <AddUsers />
  
     
   )
