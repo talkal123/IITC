@@ -7,15 +7,20 @@ function App() {
  const [taskValue,setTaskValue] = useState("")
  const [updateValue,setUpdateValue] = useState("")
  const [objectToChange,setObjectToChange] = useState(null)
+ const [loading, setLoading] = useState(true)
+ 
 
 
 useEffect(() => {
   axios.get("http://localhost:3000/tasks")
     .then((response) => {
       setTasks(response.data);
-      console.log(response.data); 
+      console.log(response.data);
+      setLoading(false) 
     })
     .catch((error) => console.error(error));
+    setLoading(false);
+
 }, []);
 
 
@@ -74,7 +79,9 @@ console.log(objectToChange);
   <h1 style={{ textAlign: "center", fontSize: "2rem", marginBottom: "20px" }}>Tasks</h1>
 
   <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-    {tasks?.map((task) => (
+    {loading ? (
+      <p>Loading...</p>
+    ): (tasks?.map((task) => (
       <div key={task.id} style={{
         display: "flex",
         justifyContent: "space-between",
@@ -117,7 +124,8 @@ console.log(objectToChange);
           </button>
         </div>
       </div>
-    ))}
+    )))}
+    
   </div>
 
   <div style={{ marginTop: "30px", display: "flex", gap: "10px" }}>
